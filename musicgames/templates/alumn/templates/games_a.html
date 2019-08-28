@@ -1,0 +1,17 @@
+{% extends "base/base_a.html" %}
+{% block content %}
+
+{% for game in games %}
+  <div class="content-section">
+    <div class="media">
+      <div class="media-body">
+        <legend class="border-bottom mb-4">{{ game['name'] }}</legend>
+        <p class="text-secondary" align="justify"><b>Descripción: </b><br>{{ game['description'] }}</p>
+        <p class="text-secondary"><b>Niveles: </b>{{ game['levels'] }}</p>
+        <a class="btn btn-outline-primary btn-sm mt-1 mb-1" href="#">Jugar</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}

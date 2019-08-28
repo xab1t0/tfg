@@ -1,0 +1,18 @@
+{% extends "base/base_t.html" %}
+{% block content %}
+{% for manage in manages %}
+  {% if manage['name'] == grupo['name'] %}
+  <div class="content-section">
+    <div class="media">
+      <div class="media-body">
+        <legend class="border-bottom mb-4">
+            <h2 class="account-heading">{{ manage['fullname'] }}</h2>
+        </legend>
+          <p class="text-secondary"><b>Usuario: </b>{{ manage['username'] }}</p>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+{% endfor %}
+<a class="btn btn-outline-secondary btn-sm mt-1 mb-1" href="javascript:history.back(-1);" title="Ir la página anterior">Volver</a>
+{% endblock %}

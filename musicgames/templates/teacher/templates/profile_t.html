@@ -1,0 +1,28 @@
+{% extends "base/base_t.html" %}
+{% block content %}
+  <div class="content-section">
+    <div class="media">
+      <img class="rounded-circle account-img" src="{{ photo }}">
+      <div class="media-body">
+        <legend class="border-bottom mb-4">Mis datos</legend>
+        <h2 class="account-heading">{{ account['fullname'] }}</h2>
+        <p class="text-secondary"><b>Usuario: </b>{{ account['username'] }}</p>
+        <p class="text-secondary"><b>DNI: </b>{{ account['dni'] }}</p>
+        <p class="text-secondary"><b>Email: </b>{{ account['email'] }}</p>
+        <p class="text-secondary"><b>Teléfono: </b>{{ account['phone'] }}</p>
+        <p class="text-secondary"><b>Fecha de Registro: </b>{{ account['register_date'] }}</p>
+        <a class="btn btn-outline-dark btn-sm mt-1 mb-1" href="{{ url_for('teachers.edit_teacher', teacher_id=account['teacher_id']) }}">Modificar</a>
+      </div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="media">
+      <div class="media-body">
+        <legend class="border-bottom mb-4">Grupos</legend>
+        <a class="btn btn-outline-primary btn-sm mt-1 mb-1" href="{{ url_for('grupos.create_grupo', teacher_id=account['teacher_id']) }}">Añadir</a>
+        <a class="btn btn-outline-secondary btn-sm mt-1 mb-1" href="{{ url_for('grupos.associate_grupo', teacher_id=account['teacher_id']) }}">Asociar</a>
+        <a class="btn btn-outline-success btn-sm mt-1 mb-1" href="{{ url_for('grupos.manage_grupo', teacher_id=account['teacher_id']) }}">Gestionar</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

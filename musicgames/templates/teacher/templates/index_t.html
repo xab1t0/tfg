@@ -1,0 +1,15 @@
+{% extends "base/base_t.html" %}
+{% block content %}
+{% for manage in manages %}
+  <div class="content-section">
+    <div class="media">
+      <div class="media-body">
+        <legend class="border-bottom mb-4">Profesor/a: {{ manage['fullname'] }}</legend>
+        <p class="text-secondary"><b>ID: </b>{{ manage['grupo_id'] }}</p>
+        <p class="text-secondary"><b>Grupo: </b>{{ manage['name'] }}</p>
+        <p class="text-secondary"><b>Aula: </b>{{ manage['classroom'] }}</p>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% endblock %}

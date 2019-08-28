@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS `grupo`; CREATE TABLE `grupo` ( `grupo_id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(255) NOT NULL, `classroom` varchar(255) NOT NULL, PRIMARY KEY (`grupo_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `teacher`; CREATE TABLE `teacher` ( `teacher_id` int(11) NOT NULL AUTO_INCREMENT, `username` varchar(255) NOT NULL, `password` varchar(255) NOT NULL, `fullname` varchar(255) NOT NULL, `dni` varchar(10) NOT NULL, `email` varchar(255) NOT NULL, `phone` varchar(10) NOT NULL, `register_date` timestamp DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`teacher_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `grupoteacher`; CREATE TABLE `grupoteacher` ( `teacher_id` int(11) NOT NULL, `grupo_id` int(11) NOT NULL, UNIQUE KEY `id_teacher_grupo` (`teacher_id`,`grupo_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `alumn`; CREATE TABLE `alumn` ( `alumn_id` int(11) NOT NULL AUTO_INCREMENT, `username` varchar(255) NOT NULL, `password` varchar(255) NOT NULL, `fullname` varchar(255) NOT NULL, `birthdate` date NOT NULL, `email` varchar(255) NOT NULL, `register_date` timestamp DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`alumn_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `grupoalumn`; CREATE TABLE `grupoalumn` ( `alumn_id` int(11) NOT NULL, `grupo_id` int(11) NOT NULL, UNIQUE KEY `id_alumn_grupo` (`alumn_id`,`grupo_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

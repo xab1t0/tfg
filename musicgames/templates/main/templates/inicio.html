@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/resp.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+    {% if title %}
+        <title>MusicGames - {{ title }}</title>
+    {% else %}
+        <title>MusicGames</title>
+    {% endif %}
+  </head>
+  <body>
+    <header class="site-header">
+			<nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+				<div class="container">
+					<a class="navbar-brand mr-4" href="{{ url_for('main.inicio') }}">MusicGames - {{ title }}</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarToggle">
+						<div class="navbar-nav mr-auto">
+						</div>
+						<!-- Navbar Right Side -->
+						<div class="navbar-nav">
+		       </div>
+		     </div>
+		    </div>
+	    </nav>
+    </header>
+    <br><br>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="wrap">
+          <div class="tarjeta-wrap">
+            <div class="tarjeta">
+              <div class="adelante card1"></div>
+              <div class="atras">
+                <a class="btn btn-primary btn-sm mt-1 mb-1" href="{{ url_for('main.games') }}"><b>Jugar</b></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wrap">
+          <div class="tarjeta-wrap">
+            <div class="tarjeta">
+              <div class="adelante card2"></div>
+              <div class="atras">
+                <a class="btn btn-success btn-sm mt-1 mb-1" href="{{ url_for('alumns.login_a') }}"><b>Alumnado</b></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wrap">
+          <div class="tarjeta-wrap">
+            <div class="tarjeta">
+              <div class="adelante card3"></div>
+              <div class="atras">
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{{ url_for('main.teacher_pass') }}"><b>Profesorado</b></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

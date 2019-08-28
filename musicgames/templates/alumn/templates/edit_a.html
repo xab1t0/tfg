@@ -1,0 +1,24 @@
+{% extends "base/base_a.html" %}
+{% block content %}
+  <div class="content-section">
+		<form method="post" action="{{ url_for('alumns.update_alumn', alumn_id=alumno['alumn_id'])}}" enctype="multipart/form-data" autocomplete="off">
+      <div class="form-row">
+        <legend class="border-bottom mb-4">Modificar Datos</legend>
+        <div class="form-group col-md-6">
+          <label for="username">Usuario</label>
+          <input type="text" class="form-control" name="username" id="username" value="{{ alumno['username'] }}"  required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="fullname">Nombre Completo</label>
+  				<input type="text" class="form-control" name="fullname" id="fullname" value="{{ alumno['fullname'] }}" required>
+        </div>
+        <div class="form-group col-md-6">
+  				<label for="email">Email</label>
+  				<input type="email" class="form-control" name="email" id="email" value="{{ alumno['email'] }}"  required>
+        </div>
+			</div>
+      <button type="submit" class="btn btn-outline-success">Actualizar</button>
+      <a class="btn btn-outline-secondary btn mt-1 mb-1" href="javascript:history.back(-1);" title="Ir la página anterior">Volver</a>
+		</form>
+	</div>
+{% endblock %}

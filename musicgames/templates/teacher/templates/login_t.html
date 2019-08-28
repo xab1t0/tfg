@@ -1,0 +1,26 @@
+{% extends "base/base_especial.html" %}
+{% block content %}
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="content-section">
+  			<form action="{{ url_for('teachers.login_t') }}" method="post" autocomplete="off">
+          <div class="form-row">
+            <legend class="border-bottom mb-4">Acceso</legend>
+            <div class="form-group col-md-6">
+      				<label for="username">Usuario</label>
+      				<input type="text" class="form-control" name="username" placeholder="Usuario" id="username" required>
+            </div>
+            <div class="form-group col-md-6">
+      				<label for="password">Contraseña</label>
+      				<input type="password" class="form-control" name="password" placeholder="Clave" id="password" required>
+            </div>
+    			</div>
+          <button type="submit" class="btn btn-outline-success">Acceder</button><br>
+          <small>¿Aún no tienes cuenta?, pulsa <a href="{{ url_for('teachers.register_t') }}">aquí</a></small>
+    		</form>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

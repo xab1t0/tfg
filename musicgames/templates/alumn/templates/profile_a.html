@@ -1,0 +1,27 @@
+{% extends "base/base_a.html" %}
+{% block content %}
+<div class="content-section">
+  <div class="media">
+      <img class="rounded-circle account-img" src="{{ foto }}">
+    <div class="media-body">
+      <legend class="border-bottom mb-4">Mis datos</legend>
+      <h2 class="account-heading">{{ account['fullname'] }}</h2>
+      <p class="text-secondary"><b>Usuario: </b>{{ account['username'] }}</p>
+      <p class="text-secondary"><b>Año de Nacimiento: </b>{{ account['birth_date'] }}</p>
+      <p class="text-secondary"><b>Email: </b>{{ account['email'] }}</p>
+      <legend class="border-bottom mb-4">Modificar</legend>
+      <a class="btn btn-outline-primary btn-sm mt-1 mb-1" href="{{ url_for('alumns.edit_alumn', alumn_id=account['alumn_id']) }}">Datos</a>
+      <a class="btn btn-outline-warning btn-sm mt-1 mb-1" href="{{ url_for('alumns.edit_avatar', alumn_id=account['alumn_id']) }}">Avatar</a>
+    </div>
+  </div>
+</div>
+<div class="content-section">
+  <div class="media">
+    <div class="media-body">
+      <legend class="border-bottom mb-4">Grupos</legend>
+      <a class="btn btn-outline-primary btn-sm mt-1 mb-1" href="{{ url_for('grupos.select_choise_grupo') }}">Elegir Grupo</a>
+      <a class="btn btn-outline-success btn-sm mt-1 mb-1" href="{{ url_for('grupos.see_grupo') }}">Mi Grupo</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base/base_a.html" %}
+{% block content %}
+{% for manage in manages %}
+  {% if manage['alumn_id'] == alumn %}
+  <div class="content-section">
+    <div class="media">
+      <div class="media-body">
+        <legend class="border-bottom mb-4">
+            <h2 class="account-heading">{{ manage['name'] }}</h2>
+        </legend>
+        <p class="text-secondary"><b>ID: </b>{{ manage['grupo_id'] }}</p>
+        <p class="text-secondary"><b>Aula: </b>{{ manage['classroom'] }}</p>
+        <a class="btn btn-outline-danger btn-sm mt-1 mb-1" href="{{ url_for('grupos.grupo_teacher', grupo_id=manage['grupo_id']) }}">Ver Profesor/a</a>
+        <a class="btn btn-outline-secondary btn-sm mt-1 mb-1" href="javascript:history.back(-1);" title="Ir la página anterior">Volver</a>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+{% endfor %}
+{% endblock %}

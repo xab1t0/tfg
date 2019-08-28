@@ -1,0 +1,105 @@
+/* APPLE */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) { /*iPad*/
+  #navegador {
+    float: left;
+    width: 25%;
+  }
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (-webkit-min-device-pixel-ratio: 2) { /*iPad 3y4*/
+  #navegador {
+    float: left;
+    width: 25%;
+  }
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (-webkit-min-device-pixel-ratio: 1)  { /*iPad Mini*/
+  #navegador {
+    float: left;
+    width: 25%;
+  }
+}
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3) { /*iPhone X-Xs*/
+  #navegador {
+    float: left;
+    width: 25%;
+  }
+}
+
+@media only screen
+and (device-width : 414px)
+and (device-height : 896px)
+and (-webkit-device-pixel-ratio : 2) { /*iPhone Xr*/
+  #navegador {
+    float: left;
+    width: 25%;
+  }
+}
+
+@media only screen
+and (device-width : 414px)
+and (device-height : 896px)
+and (-webkit-device-pixel-ratio : 3) { /*iPhone XsMAX*/
+  #navegador {
+    float: left;
+    width: 25%;
+  }
+}
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) { /* iPhone */
+  #navegador {
+    float: left;
+    width: 25%;
+  }
+}
+
+@media only screen
+and (min-device-width : 414px)
+and (max-device-width : 736px) { /* iPhone Plus */
+  #navegador {
+    float: left;
+    width: 25%;
+  }
+}
+
+/* OTROS */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 736px) {
+  #navegador {
+    float: left;
+    width: 25%;
+  }
+}
+
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px) {
+  #navegador {
+    float: left;
+    width: 25%;
+  }
+}
+
+@media only screen
+and (min-device-width: 481px)
+and (max-device-width: 767px) {
+  #navegador {
+    float: left;
+    width: 25%;
+  }
+}

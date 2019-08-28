@@ -1,0 +1,20 @@
+{% extends "base/base_t.html" %}
+{% block content %}
+  <div class="content-section">
+    <form method="post" action="{{ url_for('grupos.add_grupo') }}" autocomplete="off">
+      <div class="form-row">
+        <legend class="border-bottom mb-4">Crear Nuevo Grupo</legend>
+        <div class="form-group col-md-3">
+          <label for="name">Nombre</label>
+          <input type="text" class="form-control" name="name" placeholder="Nombre Grupo" id="name" required>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="classroom">Aula</label>
+          <input type="text" class="form-control" name="classroom" placeholder="Aula" id="classroom" required>
+        </div>
+			</div>
+      <button type="submit" class="btn btn-outline-success">Crear</button>
+      <a class="btn btn-outline-secondary btn mt-1 mb-1" href="javascript:history.back(-1);" title="Ir la página anterior">Volver</a>
+		</form>
+	</div>
+{% endblock %}
