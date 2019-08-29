@@ -104,6 +104,6 @@ def thanks():
     return render_template('thanks.html', title='Gracias')"""
 
 # Noticias ---------------------------------------------------------------------
-@main.route('/news')
+"""@main.route('/news')
 def news():
-    return render_template('news.html')
+    return render_template('news.html')"""
