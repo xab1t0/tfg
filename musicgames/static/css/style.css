@@ -3,122 +3,139 @@
   padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-.wrap {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: inline-block;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center:
-  -ms-flex-pack: center;
+a {
+  text-decoration: none;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
-.tarjeta-wrap {
-  margin: 10px;
-  -webkit-perspective: 800;
-  -moz-perspective: 800;
-  -o-perspective: 800;
-  -ms-perspective: 800;
-  perspective: 800;
+.contenedor_tarjeta {
+  margin: 20px;
 }
 
-.tarjeta {
+.contenedor_tarjeta a {
+  display: inline-block;
+}
+
+.contenedor_tarjeta:hover figure {
+  transform: perspective(600px) rotateY(180deg);
+  -webkit-box-shadow: 0px 2px 10px 2px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0px 2px 10px 2px rgba(0,0,0,0.25);
+	box-shadow: 0px 2px 10px 2px rgba(0,0,0,0.25);
+}
+
+figure {
   width: 300px;
   height: 350px;
-  background: #F29720;
+  margin: 0;
   position: relative;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
+  transition: all ease .5s;
   transform-style: preserve-3d;
-  -webkit-transition: .7s ease;
-  -moz-transition: .7s ease;
-  -o-transition: .7s ease;
-  -ms-transition: .7s ease;
-  transition: .7s ease;
-  -webkit-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
-  -moz-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
-  -o-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
-  -ms-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
-	box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
+  /* Nota:
+		Establecemos que la imagen tendra una rotacion de 0grados al inicio porque si no
+		ponemos esta propiedad nos da un poco de problemas en algunos navegadores al pasar el cursor.
+	*/
+	transform: perspective(600px) rotateY(0deg);
 }
 
-.adelante, .atras {
+figure .frontal,
+figure .trasera {
   width: 100%;
   height: 100%;
+  border-radius: 5px;
+  transition: all ease .5s;
+}
+
+figure .frontal {
+  display: block;
+  background: #000;
+
+  /* Podemos ocultar la imagen al da la vuelta si lo queremos */
+	/*backface-visibility: hidden;*/
+}
+
+figure .trasera {
   position: absolute;
   top: 0;
-  left: 0;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
+  padding: 20px;
+  color: #000;
+  transform: perspective(600px) rotateY(180deg);
   backface-visibility: hidden;
+  overflow: auto;
 }
 
-.adelante {
-  width: 100%;
+.contenedor_tarjeta:nth-child(1) figure .trasera {
+  background: rgba(246,246,246,0.75);
+  background: -moz-linear-gradient(top, rgba(246,246,246,0.75) 0%, rgba(242,207,153,0.75) 0%, rgba(207,172,51,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(246,246,246,0.75)), color-stop(0%, rgba(242,207,153,0.75)), color-stop(100%, rgba(207,172,51,1)));
+  background: -webkit-linear-gradient(top, rgba(246,246,246,0.75) 0%, rgba(242,207,153,0.75) 0%, rgba(207,172,51,1) 100%);
+  background: -o-linear-gradient(top, rgba(246,246,246,0.75) 0%, rgba(242,207,153,0.75) 0%, rgba(207,172,51,1) 100%);
+  background: -ms-linear-gradient(top, rgba(246,246,246,0.75) 0%, rgba(242,207,153,0.75) 0%, rgba(207,172,51,1) 100%);
+  background: linear-gradient(to bottom, rgba(246,246,246,0.75) 0%, rgba(242,207,153,0.75) 0%, rgba(207,172,51,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', endColorstr='#cfac33', GradientType=0 );
 }
 
-.atras {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-
-  padding: 15px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  -o-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -o-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-
-  text-align: center;
-  color: #fff;
-  font-family: "open sans";
-  background: #F29720;
+.contenedor_tarjeta:nth-child(2) figure .trasera {
+  background: rgba(246,246,246,0.75);
+  background: -moz-linear-gradient(top, rgba(246,246,246,0.75) 0%, rgba(242,207,153,0.75) 0%, rgba(207,172,51,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(246,246,246,0.75)), color-stop(0%, rgba(242,207,153,0.75)), color-stop(100%, rgba(207,172,51,1)));
+  background: -webkit-linear-gradient(top, rgba(246,246,246,0.75) 0%, rgba(242,207,153,0.75) 0%, rgba(207,172,51,1) 100%);
+  background: -o-linear-gradient(top, rgba(246,246,246,0.75) 0%, rgba(242,207,153,0.75) 0%, rgba(207,172,51,1) 100%);
+  background: -ms-linear-gradient(top, rgba(246,246,246,0.75) 0%, rgba(242,207,153,0.75) 0%, rgba(207,172,51,1) 100%);
+  background: linear-gradient(to bottom, rgba(246,246,246,0.75) 0%, rgba(242,207,153,0.75) 0%, rgba(207,172,51,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', endColorstr='#cfac33', GradientType=0 );
 }
 
-.tarjeta-wrap:hover .tarjeta {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
-  transform: rotateY(180deg);
+.contenedor_tarjeta:nth-child(3) figure .trasera {
+  background: rgba(255,255,255,0.75);
+  background: -moz-linear-gradient(top, rgba(255,255,255,0.75) 0%, rgba(242,207,153,0.75) 0%, rgba(240,204,170,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0.75)), color-stop(0%, rgba(242,207,153,0.75)), color-stop(100%, rgba(240,204,170,1)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0.75) 0%, rgba(242,207,153,0.75) 0%, rgba(240,204,170,1) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,0.75) 0%, rgba(242,207,153,0.75) 0%, rgba(240,204,170,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,0.75) 0%, rgba(242,207,153,0.75) 0%, rgba(240,204,170,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.75) 0%, rgba(242,207,153,0.75) 0%, rgba(240,204,170,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0ccaa', GradientType=0 );
 }
 
-.card1 {
-  background-image: url(../img/juegos.jpg);
-  background-size: cover;
+figure .trasera .titulo {
+  color: #000;
+  font-weight: normal;
+  margin-bottom: 20px;
+  font-family: sans-serif;
+  font-size: 24px;
 }
 
-.card2 {
-  background-image: url(../img/alumnado.jpg);
-  background-size: cover;
-  background-position: center;
+figure .trasera hr {
+  height: 2px;
+  background: #000;
+  border: none;
+  margin-bottom: 20px;
+  opacity: .5;
 }
 
-.card3 {
-  background-image: url(../img/profesorado.jpg);
-  background-size: cover;
-  background-position: center;
+figure .trasera p {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 22px;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 992px) {
+  figure .trasera {
+    backface-visibility: visible;
+    transform: perspective(600px) rotateY(0deg);
+  }
+
+  .contenedor_tarjeta:hover figure {
+    transform: perspective(600px) rotateY(0deg);
+  }
 }

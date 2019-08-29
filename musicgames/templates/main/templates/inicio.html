@@ -2,11 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	  <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/resp.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
 
     {% if title %}
@@ -34,39 +33,45 @@
 	    </nav>
     </header>
     <br><br>
-    <main role="main" class="container">
-      <div class="row">
-        <div class="wrap">
-          <div class="tarjeta-wrap">
-            <div class="tarjeta">
-              <div class="adelante card1"></div>
-              <div class="atras">
-                <a class="btn btn-primary btn-sm mt-1 mb-1" href="{{ url_for('main.games') }}"><b>Jugar</b></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="wrap">
-          <div class="tarjeta-wrap">
-            <div class="tarjeta">
-              <div class="adelante card2"></div>
-              <div class="atras">
-                <a class="btn btn-success btn-sm mt-1 mb-1" href="{{ url_for('alumns.login_a') }}"><b>Alumnado</b></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="wrap">
-          <div class="tarjeta-wrap">
-            <div class="tarjeta">
-              <div class="adelante card3"></div>
-              <div class="atras">
-                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{{ url_for('main.teacher_pass') }}"><b>Profesorado</b></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+    <div class="contenedor">
+  		<div class="contenedor_tarjeta">
+  			<a href="{{ url_for('main.games') }}">
+  				<figure id="tarjeta">
+  					<img src="{{ url_for('static', filename='img/juegos.jpg') }}" class="frontal" alt="">
+  					<figcaption class="trasera">
+  						<h2 class="titulo"><b>Usuarios No Registrados</b></h2>
+  						<hr>
+  						<p>Desde aquí puedes entrar directamente y ver todos los juegos disponibles de nuestra plataforma. <b>Recuerda</b>, solo podrás jugar un nivel de cada juego.</p>
+  					</figcaption>
+  				</figure>
+  			</a>
+  		</div>
+
+  		<div class="contenedor_tarjeta">
+  			<a href="{{ url_for('alumns.login_a') }}">
+  				<figure id="tarjeta">
+  					<img src="{{ url_for('static', filename='img/alumnado.jpg') }}" class="frontal" alt="">
+  					<figcaption class="trasera">
+  						<h2 class="titulo"><b>Alumnado</b></h2>
+  						<hr>
+  						<p>Espacio dedicado para todo los alumnos de la Academia. Donde podrás acceder con tu cuenta, además de jugar, podrás ver todos tus resultados y logros conseguidos.</p>
+  					</figcaption>
+  				</figure>
+  			</a>
+  		</div>
+
+  		<div class="contenedor_tarjeta">
+  			<a href="{{ url_for('main.teacher_pass') }}">
+  				<figure id="tarjeta">
+  					<img src="{{ url_for('static', filename='img/profesorado.jpg') }}" class="frontal" alt="">
+  					<figcaption class="trasera">
+  						<h2 class="titulo"><b>Profesorado</b></h2>
+  						<hr>
+  						<p>Espacio dedicado para todo el profesorado de la Academia. Donde podrás llevar un seguimiento de los grupos que impartes, así como, de los alumnos de éstos.</p>
+  					</figcaption>
+  				</figure>
+  			</a>
+  		</div>
+    </div>
   </body>
 </html>
