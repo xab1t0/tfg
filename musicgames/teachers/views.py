@@ -24,7 +24,7 @@ def register_t():
         account = cursor.fetchone()
         # Si la cuenta existe muestra un error de validacion
         if account:
-            flash('Cuenta ya existente!', 'danger')
+            flash('Cuenta ya existente, elija otro nombre de usuario', 'danger')
         elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
             flash('Email no valido.', 'danger')
         elif not re.match(r'[A-Za-z0-9]+', username):
@@ -38,6 +38,7 @@ def register_t():
             cursor.execute('INSERT INTO teacher (username, password, fullname, dni, email, phone, gender) VALUES (%s, %s, %s, %s, %s, %s, %s)', (username, password, fullname, dni, email, phone, gender))
             mysql.connection.commit()
             flash('Tu cuenta ha sido creada. Ahora puedes iniciar sesion', 'success')
+            return redirect(url_for('teachers.login_t'))
     elif request.method == 'POST':
         flash('Por favor, rellene el formulario.', 'danger')
     return render_template('register_t.html', title='Registro')
@@ -61,6 +62,7 @@ def login_t():
         else:
             # Account doesnt exist or username/password incorrect
             flash('Inicio de sesion fallido. Por favor, compruebe su usuario y clave', 'danger')
+            return redirect(url_for('teachers.login_t'))
     return render_template('login_t.html', title='Acceso')
 
 # Perfil Profesorado

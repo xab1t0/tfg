@@ -23,7 +23,7 @@ def register_a():
         account = cursor.fetchone()
         # Si la cuenta existe muestra un error de validacion
         if account:
-            flash('Cuenta ya existente!', 'danger')
+            flash('Cuenta ya existente, elija otro nombre de usuario', 'danger')
         elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
             flash('Email no valido', 'danger')
         elif not re.match(r'[A-Za-z0-9]+', username):
