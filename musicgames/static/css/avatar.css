@@ -10,18 +10,10 @@ label img.oculta {
   display: none;
 }
 
-input[name='avatar1']:checked + label img {
+input[name='avatar']:checked + label img {
   display: none;
 }
 
-input[name='avatar1']:checked + label img.oculta {
-  display: inline;
-}
-
-input[name='avatar2']:checked + label img {
-  display: none;
-}
-
-input[name='avatar2']:checked + label img.oculta {
+input[name='avatar']:checked + label img.oculta {
   display: inline;
 }
