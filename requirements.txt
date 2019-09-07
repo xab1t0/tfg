@@ -1,0 +1,5 @@
+#Python Librerias Requeridas
+
+flask
+flask-mysql
+Flask-Flash
