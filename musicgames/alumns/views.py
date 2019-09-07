@@ -38,6 +38,7 @@ def register_a():
             (username, password, fullname, birth_date, email, avatar))
             mysql.connection.commit()
             flash('Tu cuenta ha sido creada. Ahora puedes iniciar sesion', 'success')
+            return redirect(url_for('alumns.login_a'))
     elif request.method == 'POST':
         flash('Por favor, rellene todo el formulario', 'danger')
     return render_template('register_a.html', title='Registro')
@@ -61,6 +62,7 @@ def login_a():
         else:
             # Account doesnt exist or username/password incorrect
             flash('Inicio de sesion fallido. Por favor, compruebe su usuario y clave', 'danger')
+            return redirect(url_for('alumns.login_a'))
     return render_template('login_a.html', title='Acceso')
 
 # Perfil Alumnado
