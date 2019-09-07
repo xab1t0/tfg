@@ -7,7 +7,11 @@
         <legend class="border-bottom mb-4">Grupo: {{ manage['name'] }}</legend>
         <p class="text-secondary"><b>ID: </b>{{ manage['grupo_id'] }}</p>
         <p class="text-secondary"><b>Aula: </b>{{ manage['classroom'] }}</p>
-        <p class="text-secondary"><b>Profesor/a: </b>{{ manage['fullname'] }}</p>
+        {% if manage['fullname'] == 'NULL' %}
+          <p class="text-secondary"><b>Profesor/a: </b>No asociado</p>
+        {% else %}
+          <p class="text-secondary"><b>Profesor/a: </b>{{ manage['fullname'] }}</p>
+        {% endif %}
       </div>
     </div>
   </div>
