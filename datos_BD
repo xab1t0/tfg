@@ -7,3 +7,15 @@ DROP TABLE IF EXISTS `grupoteacher`; CREATE TABLE `grupoteacher` ( `teacher_id` 
 DROP TABLE IF EXISTS `alumn`; CREATE TABLE `alumn` ( `alumn_id` int(11) NOT NULL AUTO_INCREMENT, `username` varchar(255) NOT NULL, `password` varchar(255) NOT NULL, `fullname` varchar(255) NOT NULL, `birthdate` date NOT NULL, `email` varchar(255) NOT NULL, `register_date` timestamp DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`alumn_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `grupoalumn`; CREATE TABLE `grupoalumn` ( `alumn_id` int(11) NOT NULL, `grupo_id` int(11) NOT NULL, UNIQUE KEY `id_alumn_grupo` (`alumn_id`,`grupo_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `game`; CREATE TABLE `game` ( `game_id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(255) NOT NULL, `description` textarea NOT NULL, `levels` int(5) NOT NULL, PRIMARY KEY (`game_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `gamealumn`; CREATE TABLE `gamealumn` ( `alumn_id` int(11) NOT NULL, `game_id` int(11) NOT NULL, UNIQUE KEY `id_alumn_game` (`alumn_id`,`game_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `result`; CREATE TABLE `result` ( `result_id` int(11) NOT NULL AUTO_INCREMENT, `points` int(11) NOT NULL, PRIMARY KEY (`result_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `gameresult`; CREATE TABLE `gameresult` ( `id_result` int(11) NOT NULL, `id_game` int(11) NOT NULL, UNIQUE KEY `id_result_game` (`result_id`,`game_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `resultalumn`; CREATE TABLE `resultalumn` ( `result_id` int(11) NOT NULL, `alumn_id` int(11) NOT NULL, UNIQUE KEY `id_result_alumn` (`result_id`,`alumn_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `scoresalumn`; CREATE TABLE `scoresalumn` ( `alumn_id` int(11) NOT NULL, `game_id` int(11) NOT NULL, `result_id` int(11) NOT NULL, UNIQUE KEY `id_scores_alumn` (`alumn_id`,`game_id`,`result_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
