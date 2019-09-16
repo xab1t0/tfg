@@ -1,0 +1,20 @@
+{% extends "base/base_t.html" %}
+{% block content %}
+  <div class="content-section">
+    <form method="POST" action="{{ url_for('grupos.confirm_group') }}" autocomplete="off">
+      <div class="form-row">
+        <legend class="border-bottom mb-4"><b>Confirmar grupo</b></legend>
+        <div class="form-group col-md-3">
+          <label for="id_teacher"><b>Profesor (ID)</b></label>
+          <input type="text" class="form-control-plaintext" name="id_teacher" id="id_teacher" value="{{ teacher['teacher_id'] }}" required readonly>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="name"><b>Grupo (Nombre)</b></label>
+          <input type="text" class="form-control" name="name" id="name" required>
+        </div>
+			</div>
+      <button type="submit" class="btn btn-outline-success">Confirmar</button>
+      <a class="btn btn-outline-secondary btn mt-1 mb-1" href="javascript:history.back(-1);" title="Ir la página anterior">Volver</a>
+		</form>
+	</div>
+{% endblock %}

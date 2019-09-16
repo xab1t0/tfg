@@ -54,7 +54,7 @@ def home_t():
         SELECT grupo.name, grupo.grupo_id, grupo.classroom, teacher.fullname
         FROM teacher
         INNER JOIN grupoteacher ON teacher.teacher_id = grupoteacher.id_teacher
-        INNER JOIN grupo ON grupoteacher.id_grupo = grupo.grupo_id""")
+        INNER JOIN grupo ON grupoteacher.name_grupo = grupo.name""")
         account = cursor.fetchall()
         return render_template('index_t.html', manages=account, title=session['username'])
     # Profesorado no esta logueado, redirigir al loguin

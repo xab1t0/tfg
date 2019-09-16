@@ -19,8 +19,7 @@
     <div class="media">
       <div class="media-body">
         <legend class="border-bottom mb-4">Grupos</legend>
-        <a class="btn btn-outline-primary btn-sm mt-1 mb-1" href="{{ url_for('grupos.create_grupo', teacher_id=account['teacher_id']) }}">Añadir</a>
-        <a class="btn btn-outline-secondary btn-sm mt-1 mb-1" href="{{ url_for('grupos.associate_grupo', teacher_id=account['teacher_id']) }}">Asociar</a>
+        <a class="btn btn-outline-primary btn-sm mt-1 mb-1" href="{{ url_for('grupos.create_grupo', teacher_id=account['teacher_id']) }}">Crear</a>
         <a class="btn btn-outline-success btn-sm mt-1 mb-1" href="{{ url_for('grupos.manage_grupo', teacher_id=account['teacher_id']) }}">Gestionar</a>
       </div>
     </div>

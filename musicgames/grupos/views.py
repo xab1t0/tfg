@@ -18,59 +18,54 @@ def create_grupo():
 # Creo Grupo (Teacher)
 @grupos.route('/group/create/add', methods=['GET', 'POST'])
 def add_grupo():
-    if request.method == 'POST' and 'name' in request.form and 'classroom' in request.form:
-        # Se crea un acceso facil para las variables
-        name = request.form['name']
-        classroom = request.form['classroom']
-        # Comprueba si el grupo existe
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("SELECT * FROM grupo WHERE name = %s", [name])
-        account = cursor.fetchone()
-        # Si el grupo existe muestra un error de validacion
-        if account:
-            flash('Grupo ya existente!', 'danger')
-        elif not name or not classroom:
-            flash('Por favor, rellene el formulario.', 'danger')
-        else:
-            cursor.execute('INSERT INTO grupo (name, classroom) VALUES (%s, %s)', (name, classroom))
-            mysql.connection.commit()
-            flash('Tu grupo se ha creado. Ahora puedes asociartelo', 'success')
-            return redirect(url_for('teachers.teacher_profile'))
-    elif request.method == 'POST':
-        flash('Por favor, rellene el formulario.', 'danger')
-    return render_template('create.html', title='Crear Grupo')
-
-# Selecciono Asociar Grupo (Teacher)
-@grupos.route('/group/associate')
-def associate_grupo():
     if 'loggedin' in session:
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("SELECT * FROM teacher WHERE teacher_id = %s", [session['teacher_id']])
-        account = cursor.fetchone()
-        return render_template('select.html', teacher=session['teacher_id'], title='Asociar grupo')
-    return redirect(url_for('teachers.login_t'))
-
-# Asociar grupo a profesor/a (Teacher)
-@grupos.route('/group/associate/mygroup', methods=['GET', 'POST'])
-def select_grupo():
-    if 'loggedin' in session:
-        if request.method == 'POST' and 'id_teacher' in request.form and 'id_grupo' in request.form:
-            id_teacher = request.form['id_teacher']
-            id_grupo = request.form['id_grupo']
+        cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cur.execute("SELECT * FROM teacher WHERE teacher_id = %s", [session['teacher_id']])
+        acc = cur.fetchone()
+        if request.method == 'POST' and 'name' in request.form and 'classroom' in request.form:
+            # Se crea un acceso facil para las variables
+            name = request.form['name']
+            classroom = request.form['classroom']
+            # Comprueba si el grupo existe
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute("SELECT * FROM grupoteacher WHERE id_grupo = %s", [id_grupo])
+            cursor.execute("SELECT * FROM grupo WHERE name = %s", [name])
             account = cursor.fetchone()
-            # Si el grupo ya esta asociado muestra un error de validacion
+            # Si el grupo existe muestra un error de validacion
+            if account:
+                flash('Grupo ya existente!', 'danger')
+            elif not name or not classroom:
+                flash('Por favor, rellene el formulario.', 'danger')
+            else:
+                cursor.execute('INSERT INTO grupo (name, classroom) VALUES (%s, %s)', (name, classroom))
+                mysql.connection.commit()
+                flash('Confirme su grupo, por favor', 'success')
+                return render_template('confirm.html', teacher=acc, title='Crear Grupo')
+        elif request.method == 'POST':
+            flash('Por favor, rellene el formulario.', 'danger')
+        return render_template('create.html', teacher=acc, title='Crear Grupo')
+
+# Confirmar grupo (Teacher)
+@grupos.route('/group/create/confirm', methods=['GET', 'POST'])
+def confirm_group():
+    if 'loggedin' in session:
+        if request.method == 'POST' and 'id_teacher' in request.form and 'name' in request.form:
+            id_teacher = request.form['id_teacher']
+            name = request.form['name']
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute("SELECT * FROM grupoteacher WHERE name_grupo = %s", [name])
+            account = cursor.fetchone()
+        # Si el grupo ya esta asociado muestra un error de validacion
             if account:
                 flash('El grupo ya pertenece a otro/a profesor/a.', 'danger')
+                return redirect(url_for('teachers.teacher_profile'))
             else:
-                cursor.execute('INSERT INTO grupoteacher (id_teacher, id_grupo) VALUES (%s, %s)', (id_teacher, id_grupo))
+                cursor.execute('INSERT INTO grupoteacher (id_teacher, name_grupo) VALUES (%s, %s)', (id_teacher, name))
                 mysql.connection.commit()
                 flash('Se ha asociado correctamente a su grupo.', 'success')
                 return redirect(url_for('teachers.teacher_profile'))
         elif request.method == 'POST':
             flash('Por favor, rellene el formulario.', 'danger')
-        return render_template('select.html', title='Asociar Grupo')
+        return render_template('confirm.html', title='Confirmar Grupo')
 
 # Selecciono Gestionar Grupo (Teacher)
 @grupos.route('/teacher/group')

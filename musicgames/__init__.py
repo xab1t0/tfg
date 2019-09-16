@@ -20,14 +20,14 @@ def create_app():
     from musicgames.alumns.views import alumns
     from musicgames.grupos.views import grupos
     from musicgames.main.views import main
-    from musicgames.api.views import api
+    #from musicgames.api.views import api
     #from musicgames.errors.handlers import errors
 
     app.register_blueprint(teachers)
     app.register_blueprint(alumns)
     app.register_blueprint(grupos)
     app.register_blueprint(main)
-    app.register_blueprint(api)
+    #app.register_blueprint(api)
     #app.register_blueprint(errors)
 
     return app
