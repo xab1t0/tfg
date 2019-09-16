@@ -3,3 +3,4 @@
 flask
 flask-mysql
 Flask-Flash
+flask-restful
