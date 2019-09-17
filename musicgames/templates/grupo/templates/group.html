@@ -5,7 +5,7 @@
       <div class="media-body">
         <legend class="border-bottom mb-4">{{ account['name'] }}</legend>
         <p class="text-secondary"><b>Aula: </b>{{ account['classroom'] }}</p>
-        <a class="btn btn-outline-primary btn-sm mt-1 mb-1" href="{{ url_for('grupos.grupo_alumns', grupo_id=account['grupo_id']) }}">Alumnos</a>
+        <a class="btn btn-outline-primary btn-sm mt-1 mb-1" href="{{ url_for('grupos.grupo_alumns', name=account['name']) }}">Alumnos</a>
         <a class="btn btn-outline-success btn-sm mt-1 mb-1" href="{{ url_for('grupos.edit_group', name=account['name']) }}">Actualizar</a>
         <a class="btn btn-outline-secondary btn-sm mt-1 mb-1" href="javascript:history.back(-1);" title="Ir la página anterior">Volver</a>
         </div>

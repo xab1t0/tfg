@@ -91,18 +91,18 @@ def show_grupo(name):
     return render_template('group.html', account=account, title='Vista Grupo')
 
 # Ver Grupo de Alumnos (Teacher)
-@grupos.route('/teacher/group/<grupo_id>/alumns')
-def grupo_alumns(grupo_id):
+@grupos.route('/teacher/group/<name>/alumns')
+def grupo_alumns(name):
     if 'loggedin' in session:
         cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cur.execute("SELECT * FROM grupo WHERE grupo_id = %s", [grupo_id])
+        cur.execute("SELECT * FROM grupo WHERE name = %s", [name])
         acc = cur.fetchone()
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("""
         SELECT alumn.fullname, alumn.username, grupo.name,
         grupo.grupo_id, grupo.classroom
         FROM grupo
-        INNER JOIN grupoalumn ON grupo.grupo_id = grupoalumn.id_grupo
+        INNER JOIN grupoalumn ON grupo.name = grupoalumn.name_grupo
         INNER JOIN alumn ON grupoalumn.id_alumn = alumn.alumn_id""")
         account = cursor.fetchall()
         return render_template('grupo_alumns.html', manages=account, grupo=acc, title='Alumnos Grupo')
