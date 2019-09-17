@@ -173,7 +173,7 @@ def alumn_results():
 @alumns.route('/alumn/logros')
 def alumn_logros():
     return render_template('logros_a.html', title='Mis Logros')
-
+# -----------------------------------------------------------------
 # Juegos Alumnado
 @alumns.route('/alumn/games')
 def alumn_games():
@@ -183,6 +183,11 @@ def alumn_games():
     mysql.connection.commit()
     return render_template('games_a.html', title='Juegos', games=account)
 
+#@alumns.route('/alumn/<alumn_id>/games/<game_id>')
+#def play_game(alumn_id,game_id):
+#    return 'OK'
+
+# -----------------------------------------------------------------
 # Salida Alumnado
 @alumns.route('/logout')
 def logout():

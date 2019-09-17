@@ -33,6 +33,7 @@ def add_grupo():
             # Si el grupo existe muestra un error de validacion
             if account:
                 flash('Grupo ya existente!', 'danger')
+                return redirect(url_for('teachers.teacher_profile'))
             elif not name or not classroom:
                 flash('Por favor, rellene el formulario.', 'danger')
             else:
@@ -73,10 +74,10 @@ def manage_grupo():
     if 'loggedin' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("""
-        SELECT grupo.name, grupo.grupo_id, grupo.classroom, teacher.fullname, teacher.teacher_id
+        SELECT grupo.name, grupo.classroom, teacher.fullname, teacher.teacher_id
         FROM teacher
         INNER JOIN grupoteacher ON teacher.teacher_id = grupoteacher.id_teacher
-        INNER JOIN grupo ON grupoteacher.id_grupo = grupo.grupo_id""")
+        INNER JOIN grupo ON grupoteacher.name_grupo = grupo.name""")
         account = cursor.fetchall()
         return render_template('manage.html', manages=account, teacher=session['teacher_id'], title='Mis grupos')
     return redirect(url_for('teachers.login_t'))
@@ -143,9 +144,9 @@ def select_choise_grupo():
 @grupos.route('/group/choise/mygroup', methods=['GET', 'POST'])
 def choise_grupo():
     if 'loggedin' in session:
-        if request.method == 'POST' and 'id_alumn' in request.form and 'id_grupo' in request.form:
+        if request.method == 'POST' and 'id_alumn' in request.form and 'name_grupo' in request.form:
             id_alumn = request.form['id_alumn']
-            id_grupo = request.form['id_grupo']
+            name_grupo = request.form['name_grupo']
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute("SELECT * FROM grupoalumn WHERE id_alumn = %s", [id_alumn])
             account = cursor.fetchone()
@@ -154,13 +155,13 @@ def choise_grupo():
                 flash('Ya pertenece a un grupo.', 'danger')
                 return redirect(url_for('alumns.alumn_profile'))
             else:
-                cursor.execute('INSERT INTO grupoalumn (id_alumn, id_grupo) VALUES (%s, %s)', (id_alumn, id_grupo))
+                cursor.execute('INSERT INTO grupoalumn (id_alumn, name_grupo) VALUES (%s, %s)', (id_alumn, name_grupo))
                 mysql.connection.commit()
                 flash('Se ha asociado correctamente a su grupo.', 'success')
                 return redirect(url_for('alumns.alumn_profile'))
         elif request.method == 'POST':
             flash('Por favor, rellene el formulario.', 'danger')
-        return render_template('gchoise.html', title='Elegir Grupo')
+        return render_template('choise.html', title='Elegir Grupo')
 
 # Selecciono Mi Grupo (Alumn)
 @grupos.route('/alumn/group')
@@ -168,27 +169,27 @@ def see_grupo():
     if 'loggedin' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("""
-        SELECT grupo.name, grupo.grupo_id, grupo.classroom, alumn.fullname, alumn.alumn_id
+        SELECT grupo.name, grupo.classroom, alumn.fullname, alumn.alumn_id
         FROM alumn
         INNER JOIN grupoalumn ON alumn.alumn_id = grupoalumn.id_alumn
-        INNER JOIN grupo ON grupoalumn.id_grupo = grupo.grupo_id""")
+        INNER JOIN grupo ON grupoalumn.name_grupo = grupo.name""")
         account = cursor.fetchall()
         return render_template('see.html', manages=account, alumn=session['alumn_id'], title='Mi grupo')
     return redirect(url_for('alumns.login_a'))
 
 # Ver Profesor (Alumn)
-@grupos.route('/alumn/group/<grupo_id>/teacher')
-def grupo_teacher(grupo_id):
+@grupos.route('/alumn/group/<name>/teacher')
+def grupo_teacher(name):
     if 'loggedin' in session:
         cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cur.execute("SELECT * FROM grupo WHERE grupo_id = %s", [grupo_id])
+        cur.execute("SELECT * FROM grupo WHERE name = %s", [name])
         acc = cur.fetchone()
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("""
         SELECT teacher.fullname, teacher.email, grupo.name,
         grupo.grupo_id, grupo.classroom
         FROM grupo
-        INNER JOIN grupoteacher ON grupo.grupo_id = grupoteacher.id_grupo
+        INNER JOIN grupoteacher ON grupo.name = grupoteacher.name_grupo
         INNER JOIN teacher ON grupoteacher.id_teacher = teacher.teacher_id""")
         account = cursor.fetchall()
         return render_template('grupo_teacher.html', manages=account, grupo=acc, title='Profesor Grupo')
