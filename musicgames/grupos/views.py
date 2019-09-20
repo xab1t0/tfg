@@ -85,14 +85,6 @@ def manage_grupo():
 # Ver Grupo (Teacher)
 @grupos.route('/group/<name>')
 def show_grupo(name):
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("SELECT * FROM grupo WHERE name = %s", [name])
-    account = cursor.fetchone()
-    return render_template('group.html', account=account, title='Vista Grupo')
-
-# Ver Grupo de Alumnos (Teacher)
-@grupos.route('/teacher/group/<name>/alumns')
-def grupo_alumns(name):
     if 'loggedin' in session:
         cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cur.execute("SELECT * FROM grupo WHERE name = %s", [name])
@@ -105,11 +97,11 @@ def grupo_alumns(name):
         INNER JOIN grupoalumn ON grupo.name = grupoalumn.name_grupo
         INNER JOIN alumn ON grupoalumn.id_alumn = alumn.alumn_id""")
         account = cursor.fetchall()
-        return render_template('grupo_alumns.html', manages=account, grupo=acc, title='Alumnos Grupo')
+        return render_template('grupo.html', manages=account, grupo=acc, title='Info Grupo')
     return redirect(url_for('teachers.login_t'))
 
 # Editar aula del grupo (Teacher)
-@grupos.route('/group/edit/<name>')
+@grupos.route('/group/<name>/edit')
 def edit_group(name):
     if 'loggedin' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
