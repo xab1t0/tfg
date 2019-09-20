@@ -57,6 +57,13 @@ def login_a():
             session['loggedin'] = True
             session['alumn_id'] = account['alumn_id']
             session['username'] = account['username']
+            # Se actualiza la fecha cuando inicia sesion
+            cursor.execute("""
+            UPDATE alumn
+            SET login_date = curdate()
+            WHERE username = %s
+            """, [username])
+            mysql.connection.commit()
             # Redireccionamos al inicio
             return redirect(url_for('main.home'))
         else:

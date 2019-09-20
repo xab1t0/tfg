@@ -57,6 +57,13 @@ def login_t():
             session['loggedin'] = True
             session['teacher_id'] = account['teacher_id']
             session['username'] = account['username']
+            # Se actualiza la fecha de cuando inicia sesion
+            cursor.execute("""
+            UPDATE teacher
+            SET login_date = curdate()
+            WHERE username = %s
+            """, [username])
+            mysql.connection.commit()
             # Redireccionamos al inicio
             return redirect(url_for('main.home_t'))
         else:

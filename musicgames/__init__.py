@@ -8,7 +8,7 @@ app.secret_key = 'mysecretkey'
 app.config['MYSQL_HOST']='127.0.0.1'
 app.config['MYSQL_USER']='xab1t0'
 app.config['MYSQL_PASSWORD']='121087'
-app.config['MYSQL_DB']='school'
+app.config['MYSQL_DB']='academia'
 
 mysql = MySQL()
 
