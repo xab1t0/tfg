@@ -40,7 +40,7 @@ def add_grupo():
                 cursor.execute('INSERT INTO grupo (name, classroom) VALUES (%s, %s)', (name, classroom))
                 mysql.connection.commit()
                 flash('Confirme su grupo, por favor', 'primary')
-                return render_template('confirm.html', teacher=acc, title='Crear Grupo')
+                return render_template('confirm.html', teacher=acc, title='Confirmar Grupo')
         elif request.method == 'POST':
             flash('Por favor, rellene el formulario.', 'danger')
         return render_template('create.html', teacher=acc, title='Crear Grupo')
