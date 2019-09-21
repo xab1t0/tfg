@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
-    <script src="script.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="{{ url_for('static', filename='game1/script.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='game1/style.css') }}">
     <link href='https://fonts.googleapis.com/css?family=Archivo Narrow' rel='stylesheet'>
 </head>
 
@@ -18,7 +18,7 @@
 
     <div id="Menu">
 
-        <img src="img/gametitle.png" id="gameTitle" alt="">
+        <img src="{{ url_for('static', filename='game1/img/gametitle.png') }}" id="gameTitle" alt="">
         <p id="userName"></p>
         <p id="PlayerScore"></p>
         <p id="MaxScore"></p>
@@ -100,7 +100,7 @@
 
     <div id="Game">
 
-        <img src="img/clavesol.png" id="musicalkeyimage" class="musicalkeysol">
+        <img src="{{ url_for('static', filename='game1/img/clavesol.png') }}" id="musicalkeyimage" class="musicalkeysol">
         <div id="Bar1"></div>
         <div id="Bar2"></div>
         <div id="Bar3"></div>
