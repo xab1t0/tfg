@@ -21,8 +21,13 @@ def games():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("SELECT * FROM game")
     account = cursor.fetchall()
-    mysql.connection.commit()
     return render_template('games.html', title='Juegos', games=account)
+
+# Jugar Juego
+@main.route('/games/<game_id>')
+def game(game_id):
+    if game_id == "1":
+        return render_template('game1/index.html', title='Juego 1')
 
 # Inicio Alumnado
 @main.route('/alumn')
