@@ -1,0 +1,877 @@
+body{ 
+
+    background-color: blanchedalmond;
+    font-family: 'Archivo Narrow';
+
+}
+
+h1{
+
+    font-family: 'Archivo Narrow';
+    font-size: 1.5em;
+    text-transform: uppercase;
+    text-decoration: underline;
+
+}
+
+button{
+
+    font-family: 'Archivo Narrow';
+    border-radius: 5px;
+
+}
+
+#PlayerDataInput{
+    
+    width: 25%;
+    z-index: 1;
+    text-align: center;
+    position: fixed;
+    top: 45%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-style: solid;
+    border-width: 2px;
+    background: rgba(0,132,255,1);
+    background: -moz-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,132,255,1)), color-stop(100%, rgba(120,185,255,1)));
+    background: -webkit-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: -o-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: -ms-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: linear-gradient(to right, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0084ff', endColorstr='#78b9ff', GradientType=1 );
+
+}
+
+#Menu{
+    
+    width: 30%;
+    z-index: 1;
+    text-align: center;
+    position: fixed;
+    top: 35%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    border-style: solid;
+    border-width: 2px;
+    display: none;
+    background: rgba(0,132,255,1);
+    background: -moz-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,132,255,1)), color-stop(100%, rgba(120,185,255,1)));
+    background: -webkit-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: -o-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: -ms-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: linear-gradient(to right, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0084ff', endColorstr='#78b9ff', GradientType=1 );
+
+}
+
+#gameTitle{
+
+    max-width: 95%;
+    margin-top: 10px;
+
+}
+
+#userName{
+
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-size: 1.2em;
+
+}
+
+#GameSettings{
+    
+    width: 30%;
+    z-index: 1;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-style: solid;
+    border-width: 2px;
+    display: none;
+    background: rgba(0,132,255,1);
+    background: -moz-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,132,255,1)), color-stop(100%, rgba(120,185,255,1)));
+    background: -webkit-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: -o-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: -ms-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: linear-gradient(to right, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0084ff', endColorstr='#78b9ff', GradientType=1 );
+
+}
+
+#PianoSettings{
+    
+    width: 30%;
+    z-index: 1;
+    text-align: center;
+    position: absolute;
+    top: 32%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-style: solid;
+    border-width: 2px;
+    display: none;
+    background: rgba(0,132,255,1);
+    background: -moz-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,132,255,1)), color-stop(100%, rgba(120,185,255,1)));
+    background: -webkit-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: -o-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: -ms-linear-gradient(left, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    background: linear-gradient(to right, rgba(0,132,255,1) 0%, rgba(120,185,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0084ff', endColorstr='#78b9ff', GradientType=1 );
+
+}
+
+#topFrame{
+
+    position: fixed;
+    top: 0%;
+
+}
+
+#Game{
+
+    position: fixed;
+    z-index: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 15%;  
+    width: 98%;
+    height: 25%;
+    
+}
+
+#KeyboardStandard{
+
+    position: fixed;  
+    z-index: 0;
+    bottom: 3%;
+    margin: auto;
+    left: 1%;
+    right: 1%;
+    width: 95%;
+    height: 30%;
+    border-radius: 16px 16px 16px 16px;
+    -moz-border-radius: 16px 16px 16px 16px;
+    -webkit-border-radius: 16px 16px 16px 16px;
+    border: 14px solid #000000;
+
+}
+
+#KeyboardButtons{
+
+    display: none;
+    position: fixed;  
+    z-index: 0;
+    bottom: 3%;
+    margin: auto;
+    left: 1%;
+    right: 1%;
+    width: 95%;
+    height: 30%;
+    border-radius: 16px 16px 16px 16px;
+    -moz-border-radius: 16px 16px 16px 16px;
+    -webkit-border-radius: 16px 16px 16px 16px;
+    border: 14px solid #000000;
+
+}
+
+.l_textsettings{
+
+    position: absolute;
+    left: 4%;
+    font-weight: bold;
+     
+}
+
+.r_boxsettings{
+
+    position: absolute;
+    top: 9%;
+    bottom: 9%;
+    right: 2%;
+
+}
+
+
+.menuentry{
+
+    position: relative;
+    margin-top: 4px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 8px;
+    background: rgba(107, 107, 107, 0.3)
+
+}
+
+
+
+#Bar1{
+
+    position: absolute;
+    background-color: black;
+    width: 100%;
+    height: 2px;
+    top: 0%;
+
+}
+
+#Bar2{
+
+    position: absolute;
+    background-color: black;
+    width: 100%;
+    height: 2px;
+    top: 25%;
+    
+}
+
+#Bar3{
+
+    position: absolute;
+    background-color: black;
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    
+}
+
+#Bar4{
+
+    position: absolute;
+    background-color: black;
+    width: 100%;
+    height: 2px;
+    top: 75%;
+     
+}
+
+#Bar5{
+
+    position: absolute;
+    background-color: black;
+    width: 100%;
+    height: 2px;
+    top: 100%;
+    
+}
+
+.musicalkeysol{
+    top: -21%;
+    position: absolute;
+    max-height: 160%;
+}
+
+.musicalkeyfa{
+    top: -3%;
+    position: absolute;
+    max-height: 100%;
+}
+
+.whitekey{
+    position: absolute;
+    background-color: white;
+    width: 6.66%;
+    height: 100%;
+    -webkit-box-shadow: inset 0px 0px 7px -4px rgba(0,0,0,0.44);
+    -moz-box-shadow: inset 0px 0px 7px -4px rgba(0,0,0,0.44);
+    box-shadow: inset 0px 0px 7px -4px rgba(0,0,0,0.44);
+    cursor:pointer; 
+}
+
+.buttonkey{
+
+    position: absolute;
+    background-color: white;
+    top: 32%;
+    width: 8%;
+    height: 38%;
+    border-radius: 50%;
+    -webkit-box-shadow: inset 0px 0px 7px -4px rgba(0,0,0,0.44);
+    -moz-box-shadow: inset 0px 0px 7px -4px rgba(0,0,0,0.44);
+    box-shadow: inset 0px 0px 7px -4px rgba(0,0,0,0.44);
+    cursor:pointer; 
+}
+
+.buttonkey:active{
+
+    position: absolute;
+    background-color: grey;
+    top: 32%;
+    width: 8%;
+    height: 38%;
+    border-radius: 50%;
+    -webkit-box-shadow: inset 0px 0px 7px -4px rgba(0,0,0,0.44);
+    -moz-box-shadow: inset 0px 0px 7px -4px rgba(0,0,0,0.44);
+    box-shadow: inset 0px 0px 7px -4px rgba(0,0,0,0.44);
+    cursor:pointer; 
+}
+
+.whitekey:active{
+
+    position: absolute;
+    background-color: grey;
+    width: 6.66%;
+    height: 100%;
+    -webkit-box-shadow: inset 0px 0px 7px -4px rgba(0,0,0,0.44);
+    -moz-box-shadow: inset 0px 0px 7px -4px rgba(0,0,0,0.44);
+    box-shadow: inset 0px 0px 7px -4px rgba(0,0,0,0.44);
+    cursor:pointer; 
+}
+
+
+.blackkey{
+    position: absolute;
+    top: 0%;
+    left: 6%;
+    width: 4%;
+    height: 60%;
+    cursor:pointer;
+    background-color: black;
+}
+.blackkey:active{
+    position: absolute;
+    top: 0%;
+    left: 6%;
+    width: 4%;
+    height: 60%;
+    cursor:pointer;
+    background-color: grey;
+}
+
+.keytext{
+    position: relative;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    top: 80%;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    
+}
+
+.keytextbutton{
+    position: absolute;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    left: 10%;
+    top: 40%;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    
+}
+
+.keytextblack{
+    position: relative;
+    width: 100%; 
+    text-align: center;
+    top: 25%;
+    
+    color: white;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.keycolor{
+    
+    position: absolute;
+    display: none;
+    z-index: 10;
+    left: 10%;
+    right: 10%;
+    width: 80%;
+    height: 8%;
+    bottom: 4%;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+}
+
+.keycolorbutton{
+    
+    position: absolute;
+    z-index: 10;
+    left: 10%;
+    right: 10%;
+    width: 40%;
+    height: 8%;
+    left: 30%;
+    right: 30%;
+    bottom: 12%;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+
+}
+
+#keycolor_01{
+
+    background-color: #ff0000;
+    
+}
+
+#keycolor_02{
+    
+    background-color: #ff8800;
+    
+}
+
+#keycolor_03{
+    
+    background-color:  #fff700;
+    
+}
+
+#keycolor_04{
+    
+    background-color: #0d9101;
+    
+}
+
+#keycolor_05{
+    
+    background-color: #00ffee;
+    
+}
+
+#keycolor_06{
+    
+    background-color: #002aff;
+    
+}
+
+#keycolor_07{
+    
+    background-color: #ff00f2;
+    
+}
+
+#keycolor_08{
+    
+    background-color:#ff0000;
+    
+}
+
+#keycolor_09{
+    
+    background-color: #ff8800;
+    
+}
+
+#keycolor_10{
+    
+    background-color: #fff700;
+    
+}
+
+#keycolor_11{
+    
+    background-color: #0d9101;
+    
+}
+
+#keycolor_12{
+    
+    background-color:#00ffee;
+    
+}
+
+#keycolor_13{
+    
+    background-color: #002aff;
+    
+}
+
+#keycolor_14{
+    
+    background-color: #ff00f2;
+    
+}
+
+#keycolor_15{
+    
+    background-color: #000000;
+    
+}
+
+#keycolor_26{
+
+    background-color: #ff0000;
+    
+}
+
+#keycolor_27{
+    
+    background-color: #ff8800;
+    
+}
+
+#keycolor_28{
+    
+    background-color:  #fff700;
+    
+}
+
+#keycolor_29{
+    
+    background-color: #0d9101;
+    
+}
+
+#keycolor_30{
+    
+    background-color: #00ffee;
+    
+}
+
+#keycolor_31{
+    
+    background-color: #002aff;
+    
+}
+
+#keycolor_32{
+    
+    background-color: #ff00f2;
+    
+}
+
+.keysymbol{
+
+    position: absolute;
+    height: 150%;
+    width: 150%;
+    top: -78%;
+    left: -24%;
+    
+}
+
+
+.notesoldo{
+
+    position: absolute;
+    top: 70%;
+    align-content: center;
+    height: 60%;
+    
+
+ }
+
+ .notesolre{
+    position: absolute;
+    top: 54%;
+    align-content: center;
+    height: 60%;
+ }
+
+ .notesolmi{
+    position: absolute;
+    top: 48%;
+    align-content: center;
+    height: 60%;
+ }
+
+ .notesolfa{
+    position: absolute;
+    top: 35%;
+    align-content: center;
+    height: 60%;
+ }
+
+ .notesolsol{
+    position: absolute;
+    top: 22%;
+    align-content: center;
+    height: 60%;
+ }
+
+ .notesolla{
+    position: absolute;
+    top: 11%;
+    align-content: center;
+    height: 60%;
+ }
+
+ .notesolsi{
+    position: absolute;
+    top: -3%;
+    align-content: center;
+    height: 60%;
+ }
+
+ .notesoldoalto{
+    position: absolute;
+    top: -15%;
+    align-content: center;
+    height: 60%;
+ }
+
+ .notesoldosostenido{
+
+    position: absolute;
+    top: 70%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notesolresostenido{
+
+    position: absolute;
+    top: 54%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notesolfasostenido{
+
+    position: absolute;
+    top: 35%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notesolsolsostenido{
+
+    position: absolute;
+    top: 22%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notesollasostenido{
+
+    position: absolute;
+    top: 11%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notesolrebemol{
+
+    position: absolute;
+    top: 54%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notesolmibemol{
+
+    position: absolute;
+    top: 48%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notesolsolbemol{
+
+    position: absolute;
+    top: 22%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notesollabemol{
+
+    position: absolute;
+    top: 11%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notesolsibemol{
+
+    position: absolute;
+    top: -3%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notefado{
+
+    position: absolute;
+    top: 11%;
+    align-content: center;
+    height: 60%;
+    
+ }
+
+ .notefare{
+
+    position: absolute;
+    top: -2%;
+    align-content: center;
+    height: 60%;
+ }
+
+ .notefami{
+
+    position: absolute;
+    top: -15%;
+    align-content: center;
+    height: 60%;
+ }
+
+ .notefafa{
+
+    position: absolute;
+    top: -27%;
+    align-content: center;
+    height: 60%;
+ }
+
+ .notefasol{
+
+    position: absolute;
+    top: -40%;
+    align-content: center;
+    height: 60%;
+ }
+
+ .notefala{
+
+    position: absolute;
+    top: -52%;
+    align-content: center;
+    height: 60%;
+ }
+
+ .notefasi{
+
+    position: absolute;
+    top: -59%;
+    align-content: center;
+    height: 60%;
+ }
+
+ .notefadoalto{
+     
+    position: absolute;
+    top: -76%;
+    align-content: center;
+    height: 60%;
+ }
+
+ .notefadosostenido{
+
+    position: absolute;
+    top: 11%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notefaresostenido{
+
+    position: absolute;
+    top: -2%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notefafasostenido{
+
+    position: absolute;
+    top: -27%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notefasolsostenido{
+
+    position: absolute;
+    top: -40%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notefalasostenido{
+
+    position: absolute;
+    top: -52%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notefarebemol{
+
+    position: absolute;
+    top: -2%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notefamibemol{
+
+    position: absolute;
+    top: -15%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notefasolbemol{
+
+    position: absolute;
+    top: -40%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notefalabemol{
+
+    position: absolute;
+    top: -52%;
+    align-content: center;
+    height: 60%;
+
+ }
+
+ .notefasibemol{
+
+    position: absolute;
+    top: -59%;
+    align-content: center;
+    height: 60%;
+
+ }

@@ -8,7 +8,7 @@
         <legend class="border-bottom mb-4">{{ game['name'] }}</legend>
         <p class="text-secondary" align="justify"><b>Descripción: </b>{{ game['description'] }}</p>
         <p class="text-secondary"><b>Niveles: </b>{{ game['levels'] }}</p>
-        <a class="btn btn-outline-primary btn-sm mt-1 mb-1" href="{{ url_for('main.game', game_id=game['game_id']) }}">Jugar</a>
+        <a class="btn btn-outline-primary btn-sm mt-1 mb-1" href="{{ url_for('juego.play_game', game_id=game['game_id']) }}">Jugar</a>
       </div>
     </div>
   </div>
