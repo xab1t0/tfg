@@ -17,4 +17,40 @@ def index_game():
 @juego.route('/game/<game_id>')
 def play_game(game_id):
     if game_id == "1":
-        return render_template('game1/index.html', title='Juego 1')
+        return render_template('game1/index.html')
+    elif game_id == "2":
+        return render_template('game2/PInicio.html')
+    elif game_id == "3":
+        return render_template('game3/Pinicio.html')
+
+@juego.route('/game/2')
+def index_game2():
+    return render_template('game2/PInicio.html')
+
+@juego.route('/game/3')
+def index_game3():
+    return render_template('game3/PInicio.html')
+
+@juego.route('/game/2/levels')
+def level_game2():
+    return render_template('game2/Niveles.html')
+
+@juego.route('/game/3/levels')
+def level_game3():
+    return render_template('game3/Niveles.html')
+
+@juego.route('/game/2/level')
+def lvl_game2():
+    return render_template('game2/nivelgene.html')
+
+@juego.route('/game/3/level')
+def lvl_game3():
+    return render_template('game3/nivelgene.html')
+
+@juego.route('/game/2/gameover')
+def gameover2():
+    return render_template('game2/gameover.html')
+
+@juego.route('/game/3/gameover')
+def gameover3():
+    return render_template('game3/gameover.html')

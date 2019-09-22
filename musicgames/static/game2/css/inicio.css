@@ -1,0 +1,96 @@
+#marco {
+	background-color: rgb(228,255,234);
+	width: 100%;
+}
+
+@media (min-width: 768px) {
+	.contenido-instrucciones {
+		background-color: aliceblue;
+		margin: 10% auto;
+		padding: 20px;
+		border: 1px solid #888;
+		width: 80%;
+	}
+
+	.instrucciones {
+		display: none;
+		position: fixed;
+		z-index: 1;
+		left: 8px;
+		top: 8px;
+		width: 100%;
+		background-size: cover;
+		background-color: rgb(0,0,0);
+		background-color: rgba(0,0,0,0.4);
+	}
+}
+
+@media (min-width: 214px) and (max-width: 768px) {
+	.contenido-instrucciones {
+		background-color: aliceblue;
+		margin: 5% auto;
+		padding: 10px;
+		border: 1px solid #888;
+		width: 70%;
+	}
+
+	.instrucciones {
+		display: none;
+		position: fixed;
+		z-index: 1;
+		left: 8px;
+		top: 8px;
+		height: 370px;
+		width: 100%;
+		background-size: cover;
+		background-color: rgb(0,0,0);
+		background-color: rgba(0,0,0,0.4);
+	}
+
+}
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.titulo{
+	text-align: center;
+	color: #FFF;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+h1 {
+	background-image: url(azul.jpg);
+	background-size: cover;
+	color: transparent;
+	background-clip: text;
+	-webkit-background-clip: text;
+    text-transform: uppercase;
+	font-size: 30px;
+    margin-top: 25px;
+}
+
+.boton {
+	display: flex;
+	flex-direction: column;
+	padding: 5%;
+	align-items: center;
+}
+
+a {
+	margin-top: 30px;
+	cursor: pointer;
+}

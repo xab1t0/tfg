@@ -1,5 +1,5 @@
-var name = "Daniel";   
-var score = 0;    
+var name = "Daniel";
+var score = 0;
 var maxmScore = 0;
 var showkeys = true;
 var keyboardtype = 1;
@@ -15,20 +15,20 @@ var inGame = 0;
 var remainingNotes = 10;
 
 function getPlayerName(){
-    
+
     name = document.getElementById("PlayerName").value;
 
-    
+
     if(name == ""){
         name = "Daniel";
     }
-            
+
     document.getElementById("PlayerDataInput").style.display = "none";
     document.getElementById("Menu").style.display = "inline";
     document.getElementById("userName").innerHTML = name;
     document.getElementById("PlayerScore").innerHTML = "Puntuación anterior: " + score.toString();
-    document.getElementById("MaxScore").innerHTML = "Mejor puntuación: " + maxmScore.toString();   
- 
+    document.getElementById("MaxScore").innerHTML = "Mejor puntuación: " + maxmScore.toString();
+
 }
 
 function accessGameSettings(){
@@ -56,59 +56,59 @@ function saveGameSettings(){
     }
 
     if(document.getElementById("note1").checked == true){
-        enablednotes[0] = true;  
-    } else enablednotes[0] = false; 
+        enablednotes[0] = true;
+    } else enablednotes[0] = false;
     if(document.getElementById("note2").checked == true){
-        enablednotes[1] = true;  
-    } else enablednotes[1] = false; 
+        enablednotes[1] = true;
+    } else enablednotes[1] = false;
     if(document.getElementById("note3").checked == true){
-        enablednotes[2] = true;  
-    } else enablednotes[2] = false; 
+        enablednotes[2] = true;
+    } else enablednotes[2] = false;
     if(document.getElementById("note4").checked == true){
-        enablednotes[3] = true;  
-    } else enablednotes[3] = false; 
+        enablednotes[3] = true;
+    } else enablednotes[3] = false;
     if(document.getElementById("note5").checked == true){
-        enablednotes[4] = true;  
-    } else enablednotes[4] = false; 
+        enablednotes[4] = true;
+    } else enablednotes[4] = false;
     if(document.getElementById("note6").checked == true){
-        enablednotes[5] = true;  
-    } else enablednotes[5] = false; 
+        enablednotes[5] = true;
+    } else enablednotes[5] = false;
     if(document.getElementById("note7").checked == true){
-        enablednotes[6] = true;  
-    } else enablednotes[6] = false; 
+        enablednotes[6] = true;
+    } else enablednotes[6] = false;
     if(document.getElementById("note8").checked == true){
-        enablednotes[7] = true;  
-    } else enablednotes[7] = false; 
+        enablednotes[7] = true;
+    } else enablednotes[7] = false;
     if(document.getElementById("note9").checked == true){
-        enablednotes[8] = true;  
-    } else enablednotes[8] = false; 
+        enablednotes[8] = true;
+    } else enablednotes[8] = false;
     if(document.getElementById("note10").checked == true){
-        enablednotes[9] = true;  
-    } else enablednotes[9] = false; 
+        enablednotes[9] = true;
+    } else enablednotes[9] = false;
     if(document.getElementById("note11").checked == true){
-        enablednotes[10] = true;  
-    } else enablednotes[10] = false; 
+        enablednotes[10] = true;
+    } else enablednotes[10] = false;
     if(document.getElementById("note12").checked == true){
-        enablednotes[11] = true;  
-    } else enablednotes[11] = false; 
+        enablednotes[11] = true;
+    } else enablednotes[11] = false;
     if(document.getElementById("note13").checked == true){
-        enablednotes[12] = true;  
-    } else enablednotes[12] = false; 
+        enablednotes[12] = true;
+    } else enablednotes[12] = false;
     if(document.getElementById("note14").checked == true){
-        enablednotes[13] = true;  
-    } else enablednotes[13] = false; 
+        enablednotes[13] = true;
+    } else enablednotes[13] = false;
     if(document.getElementById("note15").checked == true){
-        enablednotes[14] = true;  
-    } else enablednotes[14] = false; 
+        enablednotes[14] = true;
+    } else enablednotes[14] = false;
     if(document.getElementById("note16").checked == true){
-        enablednotes[15] = true;  
-    } else enablednotes[15] = false; 
+        enablednotes[15] = true;
+    } else enablednotes[15] = false;
     if(document.getElementById("note17").checked == true){
-        enablednotes[16] = true;  
-    } else enablednotes[16] = false; 
+        enablednotes[16] = true;
+    } else enablednotes[16] = false;
     if(document.getElementById("note18").checked == true){
-        enablednotes[17] = true;  
-    } else enablednotes[17] = false; 
+        enablednotes[17] = true;
+    } else enablednotes[17] = false;
 
     if(enablednotes.every == false){
         enablednotes = [true,true,true,true,true,true,true,false,false,false,false,false,false,false,false,false,false,false];
@@ -123,27 +123,27 @@ function saveGameSettings(){
     } else if(document.getElementById("speed4").checked == true){
         notespeed = 5000;
     }
- 
+
     notesamount = document.getElementById("notesnumber").value;
 
     if(musicalkey == 0){
-        document.getElementById("musicalkeyimage").src = "img/clavesol.png";
+        document.getElementById("musicalkeyimage").src = "../static/game1/img/clavesol.png";
         document.getElementById("musicalkeyimage").className = "musicalkeysol";
     } else {
-        document.getElementById("musicalkeyimage").src = "img/clavefa.png";
+        document.getElementById("musicalkeyimage").src = "../static/game1/img/clavefa.png";
         document.getElementById("musicalkeyimage").className = "musicalkeyfa";
     }
-   
+
     document.getElementById("GameSettings").style.display = "none";
     document.getElementById("Menu").style.display = "inline";
-       
+
 }
 
 function accessPianoSettings(){
 
     document.getElementById("Menu").style.display = "none";
     document.getElementById("PianoSettings").style.display = "inline";
-        
+
 }
 
 function savePianoSettings(){
@@ -153,7 +153,7 @@ function savePianoSettings(){
     setKeyboardText();
 
     if(document.getElementById("keyboard1").checked == true){
-        keyboardtype = 1;  
+        keyboardtype = 1;
         enableStandardPiano();
     } else if(document.getElementById("keyboard2").checked == true){
         keyboardtype = 2;
@@ -174,7 +174,7 @@ function savePianoSettings(){
 
     document.getElementById("PianoSettings").style.display = "none";
     document.getElementById("Menu").style.display = "inline";
-  
+
 }
 
 function enableStandardPiano(){
@@ -186,17 +186,17 @@ function enableStandardPiano(){
 
 function enableButtonsPiano(){
 
-    
+
     document.getElementById("KeyboardStandard").style.display = "none";
     document.getElementById("KeyboardButtons").style.display = "inline";
 }
 
 
-    
+
 async function startGame(){
 
     document.getElementById("Menu").style.display = "none";
-  
+
     var rightPos = window.innerWidth - (window.innerWidth * 0.05);
     rightPos = rightPos - 100;
     initialPos = "translateX(" + rightPos.toString() + "px)";
@@ -241,12 +241,12 @@ async function endGame(){
     document.getElementById("Menu").style.display = "inline";
     document.getElementById("userName").innerHTML = name;
     document.getElementById("PlayerScore").innerHTML = "Puntuación anterior: " + score.toString();
-    document.getElementById("MaxScore").innerHTML = "Mejor puntuación: " + maxmScore.toString(); 
+    document.getElementById("MaxScore").innerHTML = "Mejor puntuación: " + maxmScore.toString();
 
 }
 
 function generateRandomKeynote(){
-   
+
     var x = Math.floor((Math.random()*1000)%18 );
 
     switch(x){
@@ -269,7 +269,7 @@ function generateRandomKeynote(){
         case 4:
             if(enablednotes[4] == true){
                 return "sol";
-            } else return generateRandomKeynote();                
+            } else return generateRandomKeynote();
         case 5:
             if(enablednotes[5] == true){
                 return "la";
@@ -277,51 +277,51 @@ function generateRandomKeynote(){
         case 6:
             if(enablednotes[6] == true){
                 return "si";
-            } else return generateRandomKeynote();    
+            } else return generateRandomKeynote();
         case 7:
             if(enablednotes[7] == true){
                 return "doalto";
-            } else return generateRandomKeynote();    
+            } else return generateRandomKeynote();
         case 8:
             if(enablednotes[8] == true){
                 return "dosostenido";
-            } else return generateRandomKeynote();    
+            } else return generateRandomKeynote();
         case 9:
             if(enablednotes[9] == true){
                 return "rebemol";
-            } else return generateRandomKeynote();    
+            } else return generateRandomKeynote();
         case 10:
             if(enablednotes[10] == true){
                 return "resostenido";
-            } else return generateRandomKeynote();    
+            } else return generateRandomKeynote();
         case 11:
             if(enablednotes[11] == true){
                 return "mibemol";
-            } else return generateRandomKeynote();    
+            } else return generateRandomKeynote();
         case 12:
             if(enablednotes[12] == true){
                 return "fasostenido";
-            } else return generateRandomKeynote();    
+            } else return generateRandomKeynote();
         case 13:
             if(enablednotes[13] == true){
                 return "solbemol";
-            } else return generateRandomKeynote();    
+            } else return generateRandomKeynote();
         case 14:
             if(enablednotes[14] == true){
                 return "solsostenido";
-            } else return generateRandomKeynote();    
+            } else return generateRandomKeynote();
         case 15:
             if(enablednotes[15] == true){
                 return "labemol";
-            } else return generateRandomKeynote();    
+            } else return generateRandomKeynote();
         case 16:
             if(enablednotes[16] == true){
                 return "lasostenido";
-            } else return generateRandomKeynote();    
+            } else return generateRandomKeynote();
         case 17:
             if(enablednotes[17] == true){
                 return "sibemol";
-            } else return generateRandomKeynote();    
+            } else return generateRandomKeynote();
 
     };
 
@@ -415,7 +415,7 @@ function setKeyboardColors(){
         document.getElementById("keycolor_15").style = "display:none;";
 
     } else if(keyboardtype == 2){
-      
+
         document.getElementById("keycolor_01").style = "display:none;";
         document.getElementById("keycolor_02").style = "display:none;";
         document.getElementById("keycolor_03").style = "display:none;";
@@ -431,7 +431,7 @@ function setKeyboardColors(){
         document.getElementById("keycolor_13").style = "display:none;";
         document.getElementById("keycolor_14").style = "display:none;";
         document.getElementById("keycolor_15").style = "display:none;";
-        
+
     } else if(keyboardtype == 3) {
 
         document.getElementById("keycolor_01").style = "display:block;";
@@ -475,7 +475,7 @@ function setKeyboardColors(){
         document.getElementById("keycolor_30").style = "display:block;";
         document.getElementById("keycolor_31").style = "display:block;";
         document.getElementById("keycolor_32").style = "display:block;";
-        
+
 
     } else if(keyboardtype == 5) {
 
@@ -506,12 +506,12 @@ function setKeyboardColors(){
 
 
 }
-    
+
 async function generateKeynote(note){
 
     var cssclass = "note";
-    var source = "img/";
-    
+    var source = "../static/game1/img/";
+
     //Generación ruta de imagen.
 
     if(notespeed == 24000){
@@ -533,13 +533,13 @@ async function generateKeynote(note){
     }
 
     //Generación clase nota.
-  
+
     if(musicalkey == 0){
         cssclass = cssclass + "sol";
     } else cssclass = cssclass + "fa";
-    
+
     cssclass = cssclass + note;
-  
+
     var noteindexst = "note_" + noteindex.toString();
     noteindex++;
     var element = document.createElement("img");
@@ -547,8 +547,8 @@ async function generateKeynote(note){
         switch(cssclass){
             case "notesoldo":
             case "notefado" :
-            case "notesoldosostenido" :   
-            case "notefadosostenido" :   
+            case "notesoldosostenido" :
+            case "notefadosostenido" :
             case "notefadoalto" :
                 element.setAttribute("style","filter: invert(18%) sepia(100%) saturate(7486%) hue-rotate(358deg) brightness(90%) contrast(125%);");
                 break;
@@ -577,7 +577,7 @@ async function generateKeynote(note){
             case "notesolsolsostenido":
             case "notefasolsostenido":
             case "notesolsolbemol":
-            case "notefasolbemol":       
+            case "notefasolbemol":
                 element.setAttribute("style","filter: invert(93%) sepia(68%) saturate(6802%) hue-rotate(89deg) brightness(107%) contrast(108%);");
                 break;
             case "notesolla":
@@ -585,18 +585,18 @@ async function generateKeynote(note){
             case "notesollasostenido":
             case "notefalasostenido":
             case "notesollabemol":
-            case "notefalabemol": 
+            case "notefalabemol":
                 element.setAttribute("style","filter: invert(9%) sepia(100%) saturate(6990%) hue-rotate(239deg) brightness(107%) contrast(119%);"); break;
             case "notesolsi":
             case "notefasi":
             case "notesolsisostenido":
             case "notefasisostenido":
             case "notesolsibemol":
-            case "notefasibemol": 
+            case "notefasibemol":
                 element.setAttribute("style","filter: invert(19%) sepia(87%) saturate(4469%) hue-rotate(295deg) brightness(107%) contrast(124%);"); break;
-            default: 
+            default:
             break;
-            
+
         }
     }
 
@@ -604,10 +604,10 @@ async function generateKeynote(note){
         switch(cssclass){
             case "notesoldo":
             case "notefado" :
-            case "notesoldosostenido" :   
-            case "notefadosostenido" :   
+            case "notesoldosostenido" :
+            case "notefadosostenido" :
             case "notefadoalto" :
-                source = "img/symbol_01.png";
+                source = "../static/game1/img/symbol_01.png";
                 break;
             case "notesolre":
             case "notefare":
@@ -615,48 +615,48 @@ async function generateKeynote(note){
             case "notefaresostenido":
             case "notesolrebemol":
             case "notefarebemol":
-                source = "img/symbol_02.png";
+                source = "../static/game1/img/symbol_02.png";
                 break;
             case "notesolmi":
             case "notefami":
             case "notesolmibemol":
             case "notefamibemol":
-                source = "img/symbol_03.png";
+                source = "../static/game1/img/symbol_03.png";
                 break;
             case "notesolfa":
             case "notefafa":
             case "notesolfasostenido":
             case "notefafasostenido":
-                source = "img/symbol_04.png";
+                source = "../static/game1/img/symbol_04.png";
                 break;
             case "notesolsol":
             case "notefasol":
             case "notesolsolsostenido":
             case "notefasolsostenido":
             case "notesolsolbemol":
-            case "notefasolbemol":       
-                source = "img/symbol_05.png";
+            case "notefasolbemol":
+                source = "../static/game1/img/symbol_05.png";
                 break;
             case "notesolla":
             case "notefala":
             case "notesollasostenido":
             case "notefalasostenido":
             case "notesollabemol":
-            case "notefalabemol": 
-                source = "img/symbol_06.png"; 
+            case "notefalabemol":
+                source = "../static/game1/img/symbol_06.png";
                 break;
             case "notesolsi":
             case "notefasi":
             case "notesolsisostenido":
             case "notefasisostenido":
             case "notesolsibemol":
-            case "notefasibemol": 
-                source = "img/symbol_07.png"; 
+            case "notefasibemol":
+                source = "../static/game1/img/symbol_07.png";
                 break;
-            default: 
-                source = "img/symbol_08.png"; 
+            default:
+                source = "../static/game1/img/symbol_08.png";
             break;
-                
+
             }
 
     };
@@ -664,10 +664,10 @@ async function generateKeynote(note){
     element.setAttribute("src",source);
     element.setAttribute("class",cssclass);
     element.setAttribute("id",noteindexst);
-    element.animate([ 
-        { transform: initialPos }, 
+    element.animate([
+        { transform: initialPos },
         { transform: 'translateX(0px)' }
-      ], { 
+      ], {
         duration: notespeed,
         iterations: Infinity
     });
@@ -680,7 +680,7 @@ async function generateKeynote(note){
     for(var i = 0; i < arrayNotes.length; i++){
 
         if(arrayNotes[i].id == noteindexst){
-            
+
             document.getElementById("Game").removeChild(document.getElementById(noteindexst));
             arrayNotes.splice(i,1);
             score = score - 5;
@@ -704,17 +704,17 @@ function deleteKey(key){
 
     var composedkey = "note" + key;
 
-    var audio = new Audio("snd/" + key + ".wav");
+    var audio = new Audio("../static/game1/snd/" + key + ".wav");
     audio.play();
-      
+
     if(inGame == 1){
 
         if(composedkey == "notebutton_01"){
-        
+
             for(var j = 0; j < arrayNotes.length; j++){
-    
+
                 if(arrayNotes[j].className == "notefado" || arrayNotes[j].className == "notesoldo"){
-                    
+
                     document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                     arrayNotes.splice(j,1);
                     score=score+5;
@@ -723,15 +723,15 @@ function deleteKey(key){
                         endGame();
                     }
                     return;
-                } 
+                }
             }
-    
+
         } else if(composedkey == "notebutton_02"){
-        
+
             for(var j = 0; j < arrayNotes.length; j++){
-    
+
                 if(arrayNotes[j].className == "notefare" || arrayNotes[j].className == "notesolre"){
-                    
+
                     document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                     arrayNotes.splice(j,1);
                     score=score+5;
@@ -740,15 +740,15 @@ function deleteKey(key){
                         endGame();
                     }
                     return;
-                } 
+                }
             }
-    
+
         } else if(composedkey == "notebutton_03"){
-        
+
             for(var j = 0; j < arrayNotes.length; j++){
-    
+
                 if(arrayNotes[j].className == "notefami" || arrayNotes[j].className == "notesolmi"){
-                    
+
                     document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                     arrayNotes.splice(j,1);
                     score=score+5;
@@ -757,15 +757,15 @@ function deleteKey(key){
                         endGame();
                     }
                     return;
-                } 
+                }
             }
-    
+
         } else if(composedkey == "notebutton_04"){
-        
+
             for(var j = 0; j < arrayNotes.length; j++){
-    
+
                 if(arrayNotes[j].className == "notefafa" || arrayNotes[j].className == "notesolfa"){
-                    
+
                     document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                     arrayNotes.splice(j,1);
                     score=score+5;
@@ -774,15 +774,15 @@ function deleteKey(key){
                         endGame();
                     }
                     return;
-                } 
+                }
             }
-    
+
         } else if(composedkey == "notebutton_05"){
-        
+
             for(var j = 0; j < arrayNotes.length; j++){
-    
+
                 if(arrayNotes[j].className == "notefasol" || arrayNotes[j].className == "notesolsol"){
-                    
+
                     document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                     arrayNotes.splice(j,1);
                     score=score+5;
@@ -791,15 +791,15 @@ function deleteKey(key){
                         endGame();
                     }
                     return;
-                } 
+                }
             }
-    
+
         } else if(composedkey == "notebutton_06"){
-        
+
             for(var j = 0; j < arrayNotes.length; j++){
-    
+
                 if(arrayNotes[j].className == "notefala" || arrayNotes[j].className == "notesolla"){
-                    
+
                     document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                     arrayNotes.splice(j,1);
                     score=score+5;
@@ -808,15 +808,15 @@ function deleteKey(key){
                         endGame();
                     }
                     return;
-                } 
+                }
             }
-    
+
         } else if(composedkey == "notebutton_07"){
-        
+
             for(var j = 0; j < arrayNotes.length; j++){
-    
+
                 if(arrayNotes[j].className == "notefasi" || arrayNotes[j].className == "notesolsi"){
-                    
+
                     document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                     arrayNotes.splice(j,1);
                     score=score+5;
@@ -825,15 +825,15 @@ function deleteKey(key){
                         endGame();
                     }
                     return;
-                } 
+                }
             }
-    
+
         } else if(composedkey == "notefaespecial_01"){
-        
+
             for(var j = 0; j < arrayNotes.length; j++){
-    
+
                 if(arrayNotes[j].className == "notefadosostenido" || arrayNotes[j].className == "notefarebemol"){
-                    
+
                     document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                     arrayNotes.splice(j,1);
                     score=score+5;
@@ -842,15 +842,15 @@ function deleteKey(key){
                         endGame();
                     }
                     return;
-                } 
+                }
             }
-    
+
         } else if(composedkey == "notefaespecial_02"){
-            
+
             for(var j = 0; j < arrayNotes.length; j++){
-    
+
                 if(arrayNotes[j].className == "notefaresostenido" || arrayNotes[j].className == "notefamibemol"){
-                    
+
                     document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                     arrayNotes.splice(j,1);
                     score=score+5;
@@ -859,15 +859,15 @@ function deleteKey(key){
                         endGame();
                     }
                     return;
-                } 
+                }
             }
-    
+
         } else if(composedkey == "notefaespecial_03"){
-            
+
             for(var j = 0; j < arrayNotes.length; j++){
-    
+
                 if(arrayNotes[j].className == "notefafasostenido" || arrayNotes[j].className == "notefasolbemol"){
-                    
+
                     document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                     arrayNotes.splice(j,1);
                     score=score+5;
@@ -876,15 +876,15 @@ function deleteKey(key){
                         endGame();
                     }
                     return;
-                } 
+                }
             }
-    
+
         } else if(composedkey == "notefaespecial_04"){
-            
+
             for(var j = 0; j < arrayNotes.length; j++){
-    
+
                 if(arrayNotes[j].className == "notefasolsostenido" || arrayNotes[j].className == "notefalabemol"){
-                    
+
                     document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                     arrayNotes.splice(j,1);
                     score=score+5;
@@ -893,15 +893,15 @@ function deleteKey(key){
                         endGame();
                     }
                     return;
-                } 
+                }
             }
-    
+
         } else if(composedkey == "notefaespecial_05"){
-            
+
             for(var j = 0; j < arrayNotes.length; j++){
-    
+
                 if(arrayNotes[j].className == "notefalasostenido" || arrayNotes[j].className == "notefasibemol"){
-                    
+
                     document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                     arrayNotes.splice(j,1);
                     score=score+5;
@@ -910,34 +910,34 @@ function deleteKey(key){
                         endGame();
                     }
                     return;
-                } 
+                }
             }
-    
+
         } else if(composedkey == "notesolespecial_01"){
-        
+
             for(var j = 0; j < arrayNotes.length; j++){
 
                 if(arrayNotes[j].className == "notesoldosostenido" || arrayNotes[j].className == "notesolrebemol"){
-                
+
                     document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                     arrayNotes.splice(j,1);
                     score=score+5;
                     document.getElementById("scorescreen").innerHTML = "Score: " + score.toString();
-                        
+
                         if(remainingNotes == 0 && arrayNotes.length == 0){
                             endGame();
                         }
 
                     return;
-                } 
+                }
             }
 
     } else if(composedkey == "notesolespecial_02"){
-        
+
         for(var j = 0; j < arrayNotes.length; j++){
 
             if(arrayNotes[j].className == "notesolresostenido" || arrayNotes[j].className == "notesolmibemol"){
-                
+
                 document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                 arrayNotes.splice(j,1);
                 score=score+5;
@@ -946,15 +946,15 @@ function deleteKey(key){
                     endGame();
                 }
                 return;
-            } 
+            }
         }
 
     } else if(composedkey == "notesolespecial_03"){
-        
+
         for(var j = 0; j < arrayNotes.length; j++){
 
             if(arrayNotes[j].className == "notesolfasostenido" || arrayNotes[j].className == "notesolsolbemol"){
-                
+
                 document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                 arrayNotes.splice(j,1);
                 score=score+5;
@@ -963,15 +963,15 @@ function deleteKey(key){
                     endGame();
                 }
                 return;
-            } 
+            }
         }
 
     } else if(composedkey == "notesolespecial_04"){
-        
+
         for(var j = 0; j < arrayNotes.length; j++){
 
             if(arrayNotes[j].className == "notesolsolsostenido" || arrayNotes[j].className == "notesollabemol"){
-                
+
                 document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                 arrayNotes.splice(j,1);
                 score=score+5;
@@ -980,15 +980,15 @@ function deleteKey(key){
                     endGame();
                 }
                 return;
-            } 
+            }
         }
 
     } else if(composedkey == "notesolespecial_05"){
-        
+
         for(var j = 0; j < arrayNotes.length; j++){
 
             if(arrayNotes[j].className == "notesollasostenido" || arrayNotes[j].className == "notesolsibemol"){
-                
+
                 document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                 arrayNotes.splice(j,1);
                 score=score+5;
@@ -997,15 +997,15 @@ function deleteKey(key){
                     endGame();
                 }
                 return;
-            } 
+            }
         }
 
     } else if(composedkey == "notecentral"){
-        
+
         for(var j = 0; j < arrayNotes.length; j++){
 
             if(arrayNotes[j].className == "notesoldo" || arrayNotes[j].className == "notefadoalto"){
-                
+
                 document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                 arrayNotes.splice(j,1);
                 score=score+5;
@@ -1014,7 +1014,7 @@ function deleteKey(key){
                     endGame();
                 }
                 return;
-            } 
+            }
         }
 
     } else {
@@ -1022,7 +1022,7 @@ function deleteKey(key){
         for(var j = 0; j < arrayNotes.length; j++){
 
             if(arrayNotes[j].className == composedkey){
-            
+
                 document.getElementById("Game").removeChild(document.getElementById(arrayNotes[j].id));
                 arrayNotes.splice(j,1);
                 score=score+5;
@@ -1031,7 +1031,7 @@ function deleteKey(key){
                     endGame();
                 }
                 return;
-            } 
+            }
         }
 
     }

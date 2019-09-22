@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="45.171909mm"
+   height="10.259277mm"
+   viewBox="0 0 45.171909 10.259278"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="tutorial.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4596">
+      <stop
+         style="stop-color:#00a1ff;stop-opacity:1;"
+         offset="0"
+         id="stop4592" />
+      <stop
+         style="stop-color:#003cff;stop-opacity:0"
+         offset="1"
+         id="stop4594" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 148.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="210.00001 : 148.5 : 1"
+       inkscape:persp3d-origin="105.00001 : 99 : 1"
+       id="perspective3757" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4596"
+       id="linearGradient4598"
+       x1="60.854172"
+       y1="110.46874"
+       x2="168.95537"
+       y2="114.2485"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1899582,0,0,1.2490874,-12.271812,-44.091969)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4596"
+       id="linearGradient4618"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.70299958,5.0608261e-4,-8.7653066e-4,0.57620343,17.458495,24.146645)"
+       x1="60.854172"
+       y1="110.46874"
+       x2="168.95537"
+       y2="114.2485" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="99.365232"
+     inkscape:cy="35.225587"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:snap-page="false" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-60.142116,-82.716521)">
+    <path
+       id="rect3773"
+       style="fill:url(#linearGradient4618);fill-opacity:1;stroke-width:0.16313033"
+       d="m 66.704541,82.716533 32.062635,0.02308 c 3.631264,0.0026 6.551164,2.287387 6.546844,5.122811 -0.005,2.835424 -2.93114,5.115987 -6.562411,5.113372 l -32.062641,-0.02309 c -3.631266,-0.0026 -6.551161,-2.287385 -6.546847,-5.12281 0.0043,-2.835423 2.931151,-5.115987 6.56242,-5.113373 z"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.32365322px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15809132"
+       x="75.621323"
+       y="78.710548"
+       id="text822"
+       transform="scale(0.87579325,1.141822)"><tspan
+         sodipodi:role="line"
+         id="tspan820"
+         x="75.621323"
+         y="78.710548"
+         style="stroke-width:0.15809132">Instrucciones</tspan></text>
+  </g>
+</svg>

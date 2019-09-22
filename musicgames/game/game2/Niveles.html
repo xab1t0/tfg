@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" href="{{ url_for('static', filename='game2/css/niveles.css') }}">
+	</head>
+
+	<body>
+		<div id="marco">
+			<div class = "titulo">
+				<h1 align="center"x="150">Equivalencias musicales</h1>
+				<h2> Niveles </h2>
+			</div>
+			<div id = "boton">
+				<a href="javascript:pasarLevel('{{ url_for('juego.lvl_game2') }}','1')"><img src="{{ url_for('static', filename='game2/css/Nivel1.svg') }}"/></a>
+			</div>
+			<div class="atras">
+				<a href="{{ url_for('juego.index_game2') }}"><img src="{{ url_for('static', filename='game2/css/flecha.svg') }}"/></a>
+			</div>
+		</div>
+	</body>
+	<script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='game2/js/IniciaGame.js') }}"></script>
+</html>

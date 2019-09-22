@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='game2/css/inicio.css') }}">
+	</head>
+	<body>
+		<div id="marco">
+			<div class = "titulo">
+				<h1 align="center" x="150">Equivalencias musicales</h1>
+			</div>
+			<div class = "boton">
+				<a input type="button" onclick="visible();"><img src="{{ url_for('static', filename='game2/css/tutorial.svg') }}"/></a>
+				<a href="{{ url_for('juego.level_game2') }}"><img src="{{ url_for('static', filename='game2/css/niveles.svg') }}"/></a>
+				<a href="{{ url_for('alumns.register_a') }}"><img src="{{ url_for('static', filename='game2/css/salir.svg') }}"/></a>
+			</div>
+			<div id = "instruccion" class="instrucciones">
+				<div class="contenido-instrucciones">
+					<span class="close">&times;</span>
+					<p align= "center">INSTRUCCIONES: </p>
+					<p>Tienes 3 intentos para cada puzzle de los niveles</p>
+					<p>Usa las notas de la parte inferior de cada nivel para completar la equivalencia de forma que a ambos lados el valor total de las notas sea el mismo</p>
+					<p>Ten en cuenta las equivalencias de las notas , (una redonda=dos blancas), llegando hasta la semifusa</p>
+					<p>Recuerda que el puntillo a la derecha de una nota le añade a esta la mitad de su valor</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='game2/js/instrucciones.js') }}"></script>
+</html>

@@ -1,0 +1,30 @@
+#marco {
+	background-color: rgb(139, 135, 135);
+	width: 100%;
+}
+
+@media (min-width: 214px) and (max-width: 768px) {
+	h1 {
+		background-clip: text;
+		-webkit-background-clip: text;
+		text-transform: uppercase;
+		font-size: 80px;
+		margin-top: 25px;
+	}
+}
+
+@media (min-width: 768px) {
+	h1 {
+		background-clip: text;
+		-webkit-background-clip: text;
+		text-transform: uppercase;
+		font-size: 150px;
+		margin-top: 25px;
+	}
+}
+
+.boton {
+	display: flex;
+	justify-content: space-between;
+	padding: 5%;
+}
