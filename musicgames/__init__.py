@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_mysqldb import MySQL
-from flask_jsglue import JSGlue
 
 app = Flask(__name__)
 
@@ -12,12 +11,10 @@ app.config['MYSQL_PASSWORD']='121087'
 app.config['MYSQL_DB']='academia'
 
 mysql = MySQL()
-jsglue = JSGlue()
 
 def create_app():
 
     mysql.init_app(app)
-    jsglue.init_app(app)
 
     from musicgames.teachers.views import teachers
     from musicgames.alumns.views import alumns
