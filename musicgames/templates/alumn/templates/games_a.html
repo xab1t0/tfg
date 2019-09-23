@@ -1,17 +1,15 @@
 {% extends "base/base_a.html" %}
 {% block content %}
-
-{% for game in games %}
+{% for juego in juegos %}
   <div class="content-section">
     <div class="media">
       <div class="media-body">
-        <legend class="border-bottom mb-4">{{ game['name'] }}</legend>
-        <p class="text-secondary" align="justify"><b>Descripción: </b><br>{{ game['description'] }}</p>
-        <p class="text-secondary"><b>Niveles: </b>{{ game['levels'] }}</p>
-        <a class="btn btn-outline-primary btn-sm mt-1 mb-1" href="{{ url_for('juego.play_game', username=alumn['username'], game_id=game['game_id']) }}">Jugar</a>
+        <legend class="border-bottom mb-4">{{ juego['name'] }}</legend>
+        <p class="text-secondary" align="justify"><b>Descripción: </b><br>{{ juego['description'] }}</p>
+        <p class="text-secondary"><b>Niveles: </b>{{ juego['levels'] }}</p>
+        <a class="btn btn-outline-primary btn-sm mt-1 mb-1" href="{{ url_for('alumns.play_gameA', game_id=juego['game_id']) }}">Jugar</a>
       </div>
     </div>
   </div>
 {% endfor %}
-
 {% endblock %}

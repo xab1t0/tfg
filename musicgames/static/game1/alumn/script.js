@@ -1,4 +1,4 @@
-var name = "Daniel";
+var name = "";
 var score = 0;
 var maxmScore = 0;
 var showkeys = true;
@@ -16,17 +16,12 @@ var remainingNotes = 10;
 
 function cerrarVentana(){
 
-    window.location.replace("/");
+    window.location.replace("/alumn/games");
 }
 
 function getPlayerName(){
 
     name = document.getElementById("PlayerName").value;
-
-
-    if(name == ""){
-        name = "Daniel";
-    }
 
     document.getElementById("PlayerDataInput").style.display = "none";
     document.getElementById("Menu").style.display = "inline";

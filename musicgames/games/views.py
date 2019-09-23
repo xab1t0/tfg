@@ -17,7 +17,7 @@ def index_game():
 @juego.route('/game/<game_id>')
 def play_game(game_id):
     if game_id == "1":
-        return render_template('game1/index.html')
+        return render_template('game1/user/index.html')
     elif game_id == "2":
         return render_template('game2/user/PInicio.html')
     elif game_id == "3":

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<head>
+    <script src="{{ url_for('static', filename='game1/alumn/script.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='game1/style.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Archivo Narrow' rel='stylesheet'>
+</head>
+
+<html>
+<body>
+
+    <div id="PlayerDataInput">
+
+        <p>Introduzca su nombre:</p>
+        <form action=""><input type="text" id="PlayerName" value="{{ alumn['username'] }}"></form>
+        <button onclick="getPlayerName()" style="margin-bottom: 10px; margin-top: 10px">OK</button>
+
+    </div>
+
+    <div id="Menu">
+
+        <img src="{{ url_for('static', filename='game1/img/gametitle.png') }}" id="gameTitle" alt="">
+        <p id="userName"></p>
+        <p id="PlayerScore"></p>
+        <p id="MaxScore"></p>
+
+        <button onclick="accessGameSettings()"  style="margin-bottom: 10px; margin-top: 10px">Ajustes Juego</button>
+        <button onclick="startGame()" style="margin-bottom: 10px; margin-top: 10px">Jugar</button>
+        <button onclick="accessPianoSettings()" style="margin-bottom: 10px; margin-top: 10px">Ajustes Piano</button>
+        <button onclick="cerrarVentana()" style="margin-bottom: 10px; margin-top: 10px">Salir</button>
+
+    </div>
+
+    <div id="GameSettings">
+
+        <h1>Tipos de clave</h1>
+            <div class="menuentry"><span class="l_textsettings">Clave de SOL</span><input type="radio" class="r_boxsettings" id="musicalkeysol" name="musicalkey" value="sol" checked><br></div>
+            <div class="menuentry"><span class="l_textsettings">Clave de FA</span><input type="radio" class="r_boxsettings" id="musicalkeyfa" name="musicalkey" value="fa"><br></div>
+
+        <h1>Simbolos</h1>
+
+            <div class="menuentry"><span class="l_textsettings">Figuras musicales estándar</span><input type="radio" class="r_boxsettings" id="symbolstandard" name="symbols" value="standard" checked><br></div>
+            <div class="menuentry"><span class="l_textsettings">Figuras musicales de color</span><input type="radio" class="r_boxsettings" id="symbolcolor" name="symbols" value="centraldo"><br></div>
+            <div class="menuentry"><span class="l_textsettings">Dibujos (solo notas básicas)</span><input type="radio" class="r_boxsettings" id="symbolfigure" name="symbols" value="colored"><br></div>
+
+        <h1>Notas</h1>
+            <div class="menuentry"><span class="l_textsettings">DO</span> <input id="note1" class="r_boxsettings" type="checkbox" name="notesgame" value="show" checked><br></div>
+            <div class="menuentry"><span class="l_textsettings">RE</span> <input id="note2" class="r_boxsettings" type="checkbox" name="notesgame" value="show" checked><br></div>
+            <div class="menuentry"><span class="l_textsettings">MI</span> <input id="note3" class="r_boxsettings" type="checkbox" name="notesgame" value="show" checked><br></div>
+            <div class="menuentry"><span class="l_textsettings">FA</span> <input id="note4" class="r_boxsettings" type="checkbox" name="notesgame" value="show" checked><br></div>
+            <div class="menuentry"><span class="l_textsettings">SOL</span> <input id="note5" class="r_boxsettings" type="checkbox" name="notesgame" value="show" checked><br></div>
+            <div class="menuentry"><span class="l_textsettings">LA</span> <input id="note6" class="r_boxsettings" type="checkbox" name="notesgame" value="show" checked><br></div>
+            <div class="menuentry"><span class="l_textsettings">SI</span> <input id="note7" class="r_boxsettings" type="checkbox" name="notesgame" value="show" checked><br></div>
+            <div class="menuentry"><span class="l_textsettings">DO Alto</span> <input id="note8" class="r_boxsettings" type="checkbox" name="notesgame" value="show"><br></div>
+            <div class="menuentry"><span class="l_textsettings">DO#</span> <input id="note9" class="r_boxsettings" type="checkbox" name="notesgame" value="show"><br></div>
+            <div class="menuentry"><span class="l_textsettings">REb</span> <input id="note10" class="r_boxsettings" type="checkbox" name="notesgame" value="show"><br></div>
+            <div class="menuentry"><span class="l_textsettings">RE#</span> <input id="note11" class="r_boxsettings" type="checkbox" name="notesgame" value="show"><br></div>
+            <div class="menuentry"><span class="l_textsettings">MIb</span> <input id="note12" class="r_boxsettings" type="checkbox" name="notesgame" value="show"><br></div>
+            <div class="menuentry"><span class="l_textsettings">FA#</span> <input id="note13" class="r_boxsettings" type="checkbox" name="notesgame" value="show"><br></div>
+            <div class="menuentry"><span class="l_textsettings">SOLb</span> <input id="note14" class="r_boxsettings" type="checkbox" name="notesgame" value="show"><br></div>
+            <div class="menuentry"><span class="l_textsettings">SOL#</span> <input id="note15" class="r_boxsettings" type="checkbox" name="notesgame" value="show"><br></div>
+            <div class="menuentry"><span class="l_textsettings">LAb</span> <input id="note16" class="r_boxsettings" type="checkbox" name="notesgame" value="show"><br></div>
+            <div class="menuentry"><span class="l_textsettings">LA#</span> <input id="note17" class="r_boxsettings" type="checkbox" name="notesgame" value="show"><br></div>
+            <div class="menuentry"><span class="l_textsettings">SIb</span> <input id="note18" class="r_boxsettings" type="checkbox" name="notesgame" value="show"><br></div>
+
+        <h1>Velocidad</h1>
+            <div class="menuentry"><span class="l_textsettings">Redonda</span><input type="radio" class="r_boxsettings" id="speed1" name="speed" value="standard" checked><br></div>
+            <div class="menuentry"><span class="l_textsettings">Blanca</span><input type="radio" class="r_boxsettings" id="speed2" name="speed" value="centraldo"><br></div>
+            <div class="menuentry"><span class="l_textsettings">Negra</span><input type="radio" class="r_boxsettings" id="speed3" name="speed" value="colored"><br></div>
+            <div class="menuentry"><span class="l_textsettings">Corchea</span><input type="radio" class="r_boxsettings" id="speed4" name="speed" value="colored"><br></div>
+
+        <h1>Numero de notas</h1>
+            <input type="range" name="notesnumber" id="notesnumber" min="1" max="20" step="1" value="10"> <br>
+
+        <button onclick="saveGameSettings()" style="margin-bottom: 10px; margin-top: 10px">Guardar ajustes</button>
+
+    </div>
+
+    <div id="PianoSettings">
+
+        <h1>Notas en el piano</h1>
+
+            <div class="menuentry"><span class="l_textsettings">Mostrar</span><input id="noteskeyboard" class="r_boxsettings" type="checkbox" name="noteskeyboard" value="show"><br></div>
+
+        <h1>Tipo de teclado</h1>
+
+            <div class="menuentry"><span class="l_textsettings">Piano normal</span><input type="radio" class="r_boxsettings" id="keyboard1" name="keyboardtype" value="standard" checked><br></div>
+            <div class="menuentry"><span class="l_textsettings">Piano: Destaca DO Central</span><input type="radio" class="r_boxsettings" id="keyboard2" name="keyboardtype" value="centraldo"><br></div>
+            <div class="menuentry"><span class="l_textsettings">Piano con colores</span><input type="radio" class="r_boxsettings" id="keyboard3" name="keyboardtype" value="colored"><br></div>
+            <div class="menuentry"><span class="l_textsettings">Piano de botones</span><input type="radio" class="r_boxsettings" id="keyboard4" name="keyboardtype" value="buttons"><br></div>
+            <div class="menuentry"><span class="l_textsettings">Piano de botones con dibujos</span><input type="radio" class="r_boxsettings" id="keyboard5" name="keyboardtype" value="buttonspic"><br></div>
+
+        <button onclick="savePianoSettings()" style="margin-bottom: 10px; margin-top: 10px">Guardar ajustes</button>
+
+    </div>
+
+    <div id="topFrame">
+
+        <p id="scorescreen">Score: 0</p>
+
+    </div>
+
+    <div id="Game">
+
+        <img src="{{ url_for('static', filename='game1/img/clavesol.png') }}" id="musicalkeyimage" class="musicalkeysol">
+        <div id="Bar1"></div>
+        <div id="Bar2"></div>
+        <div id="Bar3"></div>
+        <div id="Bar4"></div>
+        <div id="Bar5"></div>
+
+    </div>
+
+    <div id="KeyboardStandard">
+
+        <span class="whitekey" onclick="deleteKey('fado')" style="left: 0%"><p class="keytext" id="keytext_01"></p><span class="keycolor" id="keycolor_01"></span></span>
+        <span class="whitekey" onclick="deleteKey('fare')" style="left: 6.66%"><p class="keytext" id="keytext_02"></p><span class="keycolor" id="keycolor_02"></span></span>
+        <span class="whitekey" onclick="deleteKey('fami')" style="left: 13.32%"><p class="keytext" id="keytext_03"></p><span class="keycolor" id="keycolor_03"></span></span>
+        <span class="whitekey" onclick="deleteKey('fafa')" style="left: 19.98%"><p class="keytext" id="keytext_04"></p><span class="keycolor" id="keycolor_04"></span></span>
+        <span class="whitekey" onclick="deleteKey('fasol')" style="left: 26.64%"><p class="keytext" id="keytext_05"></p><span class="keycolor" id="keycolor_05"></span></span>
+        <span class="whitekey" onclick="deleteKey('fala')" style="left: 33.3%"><p class="keytext" id="keytext_06"></p><span class="keycolor" id="keycolor_06"></span></span>
+        <span class="whitekey" onclick="deleteKey('fasi')" style="left: 39.96%"><p class="keytext" id="keytext_07"></p><span class="keycolor" id="keycolor_07"></span></span>
+        <span class="whitekey" onclick="deleteKey('central')" style="left: 46.62%"><p class="keytext" id="keytext_08"></p><span class="keycolor" id="keycolor_08"></span></span>
+        <span class="whitekey" onclick="deleteKey('solre')" style="left: 53.28%"><p class="keytext" id="keytext_09"></p><span class="keycolor" id="keycolor_09"></span></span>
+        <span class="whitekey" onclick="deleteKey('solmi')" style="left: 59.94%"><p class="keytext" id="keytext_10"></p><span class="keycolor" id="keycolor_10"></span></span>
+        <span class="whitekey" onclick="deleteKey('solfa')" style="left: 66.6%"><p class="keytext" id="keytext_11"></p><span class="keycolor" id="keycolor_11"></span></span>
+        <span class="whitekey" onclick="deleteKey('solsol')" style="left: 73.26%"><p class="keytext" id="keytext_12"></p><span class="keycolor" id="keycolor_12"></span></span>
+        <span class="whitekey" onclick="deleteKey('solla')" style="left: 79.92%"><p class="keytext" id="keytext_13"></p><span class="keycolor" id="keycolor_13"></span></span>
+        <span class="whitekey" onclick="deleteKey('solsi')" style="left: 86.58%"><p class="keytext" id="keytext_14"></p><span class="keycolor" id="keycolor_14"></span></span>
+        <span class="whitekey" onclick="deleteKey('soldoalto')" style="left: 93.24%"><p class="keytext" id="keytext_15"></p><span class="keycolor" id="keycolor_15"></span></span>
+        <span class="blackkey" onclick="deleteKey('faespecial_01')" style="left: 4.66%"><p class="keytextblack" id="keytext_16"></p></span>
+        <span class="blackkey" onclick="deleteKey('faespecial_02')" style="left: 11.4%"><p class="keytextblack" id="keytext_17"></p></span>
+        <span class="blackkey" onclick="deleteKey('faespecial_03')" style="left: 24.5%"><p class="keytextblack" id="keytext_18"></p></span>
+        <span class="blackkey" onclick="deleteKey('faespecial_04')" style="left: 31.3%"><p class="keytextblack" id="keytext_19"></p></span>
+        <span class="blackkey" onclick="deleteKey('faespecial_05')" style="left: 38%"><p class="keytextblack" id="keytext_20"></p></span>
+        <span class="blackkey" onclick="deleteKey('solespecial_01')" style="left: 51.3%"><p class="keytextblack" id="keytext_21"></p></span>
+        <span class="blackkey" onclick="deleteKey('solespecial_02')" style="left: 58%"><p class="keytextblack" id="keytext_22"></p></span>
+        <span class="blackkey" onclick="deleteKey('solespecial_03')" style="left: 71.3%"><p class="keytextblack" id="keytext_23"></p></span>
+        <span class="blackkey" onclick="deleteKey('solespecial_04')" style="left: 78%"><p class="keytextblack" id="keytext_24"></p></span>
+        <span class="blackkey" onclick="deleteKey('solespecial_05')" style="left: 84.6%"><p class="keytextblack" id="keytext_25"></p></span>
+
+    </div>
+
+    <div id="KeyboardButtons">
+
+        <span class="buttonkey" onclick="deleteKey('button_01')" style="left: 2%"><p class="keytextbutton" id="keytext_26"></p><img src="{{ url_for('static', filename='game1/img/symbol_01.png') }}" class="keysymbol" id="keysymbol_01" alt=""><span class="keycolorbutton" id="keycolor_26"></span></span>
+        <span class="buttonkey" onclick="deleteKey('button_02')" style="left: 16%"><p class="keytextbutton" id="keytext_27"></p><img src="{{ url_for('static', filename='game1/img/symbol_02.png') }}" class="keysymbol" id="keysymbol_02" alt=""><span class="keycolorbutton" id="keycolor_27"></span></span>
+        <span class="buttonkey" onclick="deleteKey('button_03')" style="left: 31%"><p class="keytextbutton" id="keytext_28"></p><img src="{{ url_for('static', filename='game1/img/symbol_03.png') }}" class="keysymbol" id="keysymbol_03" alt=""><span class="keycolorbutton" id="keycolor_28"></span></span>
+        <span class="buttonkey" onclick="deleteKey('button_04')" style="left: 46%"><p class="keytextbutton" id="keytext_29"></p><img src="{{ url_for('static', filename='game1/img/symbol_04.png') }}" class="keysymbol" id="keysymbol_04" alt=""><span class="keycolorbutton" id="keycolor_29"></span></span>
+        <span class="buttonkey" onclick="deleteKey('button_05')" style="right: 31%"><p class="keytextbutton" id="keytext_30"></p><img src="{{ url_for('static', filename='game1/img/symbol_05.png') }}" class="keysymbol" id="keysymbol_05" alt=""><span class="keycolorbutton" id="keycolor_30"></span></span>
+        <span class="buttonkey" onclick="deleteKey('button_06')" style="right: 16%"><p class="keytextbutton" id="keytext_31"></p><img src="{{ url_for('static', filename='game1/img/symbol_06.png') }}" class="keysymbol" id="keysymbol_06" alt=""><span class="keycolorbutton" id="keycolor_31"></span></span>
+        <span class="buttonkey" onclick="deleteKey('button_07')" style="right: 2%"><p class="keytextbutton" id="keytext_32"></p><img src="{{ url_for('static', filename='game1/img/symbol_07.png') }}" class="keysymbol" id="keysymbol_07" alt=""><span class="keycolorbutton" id="keycolor_32"></span></span>
+
+    </div>
+
+</body>
+</html>
