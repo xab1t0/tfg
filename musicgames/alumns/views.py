@@ -188,7 +188,7 @@ def alumn_games():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("SELECT * FROM game")
         account = cursor.fetchall()
-        return render_template('games_a.html', title='Juegos', juego=account)
+        return render_template('games_a.html', title='Juegos', juegos=account)
     return redirect(url_for('alumns.login_a'))
 
 # Jugar Juego
@@ -199,11 +199,11 @@ def play_gameA(game_id):
         cur.execute("SELECT * FROM alumn WHERE username = %s", [session['username']])
         acc = cur.fetchone()
         if game_id == "1":
-            return render_template('../../../game1/alumn/index.html', alumn=acc)
+            return render_template('game1/alumn/index.html', alumn=acc)
         elif game_id == "2":
-            return render_template('../../../game2/alumn/PInicio.html')
+            return render_template('game2/alumn/PInicio.html')
         elif game_id == "3":
-            return render_template('../../../game3/alumn/Pinicio.html')
+            return render_template('game3/alumn/PInicio.html')
 
 # Recibir Puntuaciones
 #@alumns.route('/alumn/<username>/games/<game_id>/<points>, methods=['GET', 'POST']')
