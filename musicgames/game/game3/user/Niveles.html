@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" href="{{ url_for('static', filename='game3/css/niveles.css') }}">
+	</head>
+
+	<body>
+		<div id="marco">
+			<div class = "titulo">
+				<h1 align="center"x="150"> Atrapa al intruso </h1>
+				<h2> Niveles </h2>
+			</div>
+			<div id = "boton">
+				<a href="javascript:pasarLevel('{{ url_for('juego.lvl_game3') }}','1')"><img src="{{ url_for('static', filename='game3/css/Nivel1.svg') }}"/></a>
+			</div>
+			<div class="atras">
+				<a href="{{ url_for('juego.index_game3') }}"><img src="{{ url_for('static', filename='game3/css/flecha.svg') }}"/></a>
+			</div>
+		</div>
+	</body>
+	<script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='game3/js/IniciaGame.js') }}"></script>
+</html>

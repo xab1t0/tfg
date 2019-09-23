@@ -184,11 +184,27 @@ def alumn_logros():
 # Juegos Alumnado
 @alumns.route('/alumn/games')
 def alumn_games():
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("SELECT * FROM game")
-    account = cursor.fetchall()
-    mysql.connection.commit()
-    return render_template('games_a.html', title='Juegos', games=account)
+    if 'loggedin' in session:
+        cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cur.execute("SELECT * FROM alumn WHERE username = %s", [session['username']])
+        acc = cur.fetchone()
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("SELECT * FROM game")
+        account = cursor.fetchall()
+        mysql.connection.commit()
+        return render_template('games_a.html', title='Juegos', alumn=acc, games=account)
+    return redirect(url_for('alumn.login_a'))
+
+# Jugar Juego
+@alumns.route('/alumn/<username>/game/<game_id>')
+def play_game(username, game_id):
+    if 'loggedin' in session:
+        if game_id == "1":
+            return render_template('../../../game1/index.html')
+        elif game_id == "2":
+            return render_template('../../../game2/alumn/PInicio.html')
+        elif game_id == "3":
+            return render_template('../../../game3/alumn/Pinicio.html')
 
 #@alumns.route('/alumn/<alumn_id>/games/<game_id>')
 #def play_game(alumn_id,game_id):

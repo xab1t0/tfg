@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='game3/css/inicio.css') }}">
+	</head>
+	<body>
+		<div id="marco">
+			<div class = "titulo">
+				<h1 align="center" x="150">Atrapa al instruso</h1>
+			</div>
+			<div class = "boton">
+				<a input type="button" onclick="visible();"><img src="{{ url_for('static', filename='game3/css/tutorial.svg') }}"/></a>
+				<a href="{{ url_for('juego.level_game3') }}"><img src="{{ url_for('static', filename='game3/css/niveles.svg') }}"/></a>
+				<a href="{{ url_for('alumns.register_a') }}"><img src="{{ url_for('static', filename='game3/css/salir.svg') }}"/></a>
+			</div>
+			<div id = "instruccion" class="instrucciones">
+				<div class="contenido-instrucciones">
+					<span class="close">&times;</span>
+					<p align= "center">INSTRUCCIONES: </p>
+					<p>Tienes 3 intentos para cada puzzle del nivel</p>
+					<p>Observa los instrumentos que aparecen en cada nivel</p>
+					<p>Identifica la familia común de la mayoria de intrumentos</p>
+					<p>Selecciona aquel o aquellos que no pertenecen a la familia</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='game3/js/instrucciones.js') }}"></script>
+</html>

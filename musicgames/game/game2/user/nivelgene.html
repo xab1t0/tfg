@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Equivalencias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='game2/css/Equivalencia.css') }}">
+
+</head>
+
+<body>
+	<div id="game">
+		<div id=cabecera1>
+			<div id="atras">
+				<a href="{{ url_for('juego.level_game2') }}"><img src="{{ url_for('static', filename='game2/css/flecha.svg') }}"/></a>
+			</div>
+			<div id="pauseButton">
+				<a input type="button" onclick="visible();"><img src="{{ url_for('static', filename='game2/css/pausa.svg') }}"/></a>
+			</div>
+		</div>
+		<div class = "titulo">
+			<h1 align="center">Equivalencias Musicales</h1>
+		</div>
+		<div id="cabecera2">
+			<div id = "contador">
+				<h2>Score: 0</h2>
+			</div>
+			<div id= "tiempo">
+				<span id="segundos">50</span>
+			</div>
+		</div>
+		<div id="puzzle">
+			<div id="proof"></div>
+			<div id="igual">
+				<img src="{{ url_for('static', filename='game2/css/igual.svg') }}"/>
+			</div>
+			<div id="result"></div>
+		</div>
+		<div id="cabecera3">
+			<div id = "level">
+				<h2>Nivel: </h2>
+			</div>
+			<div id="DatoNivel">
+				<div id="corazon1">
+					<img src="{{ url_for('static', filename='game2/css/vidas.svg') }}"/>
+				</div>
+				<div id="corazon2">
+					<img src="{{ url_for('static', filename='game2/css/vidas.svg') }}"/>
+				</div>
+				<div id="corazon3">
+					<img src="{{ url_for('static', filename='game2/css/vidas.svg') }}"/>
+				</div>
+			</div>
+		</div>
+		<div id="piezas"></div>
+		<div id = "pausa" class="miPausa">
+			<div class="contenido-pausa">
+				<span class="close">&times;</span>
+				<p align= "center">PAUSE </p>
+				<div id="botones">
+					<div id="inicio">
+						<a href="{{ url_for('juego.index_game2') }}"><img src="{{ url_for('static', filename='game2/css/inicio.svg') }}"/></a>
+					</div>
+					<div id="volver">
+						<a href="{{ url_for('juego.level_game2') }}"><img src="{{ url_for('static', filename='game2/css/flechaNivel.svg') }}"/></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+	</footer>
+	<script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='game2/js/recogeLevel.js') }}"></script>
+	<script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='game2/js/tiempo.js') }}"></script>
+	<script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='game2/js/movimiento.js') }}"></script>
+	<script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='game2/js/zonas.js') }}"></script>
+	<script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='game2/js/pause.js') }}"></script>
+	<script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='game2/js/GameManager.js') }}"></script>
+	<script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='game2/js/iniciaLevel.js') }}"></script>
+	<script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='game2/js/IniciaGame.js') }}"></script>
+</body>
+</html>
