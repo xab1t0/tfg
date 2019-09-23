@@ -14,6 +14,11 @@ var arrayNotes = [];
 var inGame = 0;
 var remainingNotes = 10;
 
+function cerrarVentana(){
+
+    window.location.replace("/");
+}
+
 function getPlayerName(){
 
     name = document.getElementById("PlayerName").value;

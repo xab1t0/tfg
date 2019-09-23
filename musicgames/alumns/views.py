@@ -206,8 +206,9 @@ def play_game(username, game_id):
         elif game_id == "3":
             return render_template('../../../game3/alumn/Pinicio.html')
 
-#@alumns.route('/alumn/<alumn_id>/games/<game_id>')
-#def play_game(alumn_id,game_id):
+# Recibir Puntuaciones
+#@alumns.route('/alumn/<username>/games/<game_id>/<points>, methods=['GET', 'POST']')
+#def receive_result(username, game_id, points):
 #    return 'OK'
 
 # -----------------------------------------------------------------
