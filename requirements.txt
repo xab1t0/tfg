@@ -3,5 +3,4 @@
 flask
 flask-mysql
 Flask-Flash
-Flask-JSGlue
 flask-restful
