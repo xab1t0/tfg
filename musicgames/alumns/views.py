@@ -171,11 +171,6 @@ def update_avatar(alumn_id):
         return redirect(url_for('alumns.alumn_profile'))
     return render_template('avatar_a.html', title='Elegir Avatar')
 
-# Resultados de Alumnado
-@alumns.route('/alumn/results')
-def alumn_results():
-    return render_template('results_a.html', title='Mis Puntuaciones')
-
 # Logro Alumnado
 @alumns.route('/alumn/logros')
 def alumn_logros():
@@ -204,6 +199,11 @@ def play_gameA(game_id):
             return render_template('game2/alumn/PInicio.html')
         elif game_id == "3":
             return render_template('game3/alumn/PInicio.html')
+
+# Resultados de Alumnado
+@alumns.route('/alumn/results')
+def alumn_results():
+    return render_template('results_a.html', title='Mis Puntuaciones')
 
 # Recibir Puntuaciones
 #@alumns.route('/alumn/<username>/games/<game_id>/<points>, methods=['GET', 'POST']')
