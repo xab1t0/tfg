@@ -231,8 +231,6 @@ def add_result():
         #    cur.execute('INSERT INTO resultalumn (id_teacher, name_grupo) VALUES (%s, %s)', (id_teacher, name))
         #    mysql.connection.commit()
 
-
-
 # -----------------------------------------------------------------
 # Salida Alumnado
 @alumns.route('/logout')
