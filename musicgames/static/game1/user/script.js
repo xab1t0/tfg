@@ -132,10 +132,10 @@ function saveGameSettings(){
     notesamount = document.getElementById("notesnumber").value;
 
     if(musicalkey == 0){
-        document.getElementById("musicalkeyimage").src = "../static/game1/img/clavesol.png";
+        document.getElementById("musicalkeyimage").src = "../../../static/game1/img/clavesol.png";
         document.getElementById("musicalkeyimage").className = "musicalkeysol";
     } else {
-        document.getElementById("musicalkeyimage").src = "../static/game1/img/clavefa.png";
+        document.getElementById("musicalkeyimage").src = "../../../static/game1/img/clavefa.png";
         document.getElementById("musicalkeyimage").className = "musicalkeyfa";
     }
 
@@ -515,7 +515,7 @@ function setKeyboardColors(){
 async function generateKeynote(note){
 
     var cssclass = "note";
-    var source = "../static/game1/img/";
+    var source = "../../../static/game1/img/";
 
     //Generación ruta de imagen.
 
@@ -612,7 +612,7 @@ async function generateKeynote(note){
             case "notesoldosostenido" :
             case "notefadosostenido" :
             case "notefadoalto" :
-                source = "../static/game1/img/symbol_01.png";
+                source = "../../../static/game1/img/symbol_01.png";
                 break;
             case "notesolre":
             case "notefare":
@@ -620,19 +620,19 @@ async function generateKeynote(note){
             case "notefaresostenido":
             case "notesolrebemol":
             case "notefarebemol":
-                source = "../static/game1/img/symbol_02.png";
+                source = "../../../static/game1/img/symbol_02.png";
                 break;
             case "notesolmi":
             case "notefami":
             case "notesolmibemol":
             case "notefamibemol":
-                source = "../static/game1/img/symbol_03.png";
+                source = "../../../static/game1/img/symbol_03.png";
                 break;
             case "notesolfa":
             case "notefafa":
             case "notesolfasostenido":
             case "notefafasostenido":
-                source = "../static/game1/img/symbol_04.png";
+                source = "../../../static/game1/img/symbol_04.png";
                 break;
             case "notesolsol":
             case "notefasol":
@@ -640,7 +640,7 @@ async function generateKeynote(note){
             case "notefasolsostenido":
             case "notesolsolbemol":
             case "notefasolbemol":
-                source = "../static/game1/img/symbol_05.png";
+                source = "../../../static/game1/img/symbol_05.png";
                 break;
             case "notesolla":
             case "notefala":
@@ -648,7 +648,7 @@ async function generateKeynote(note){
             case "notefalasostenido":
             case "notesollabemol":
             case "notefalabemol":
-                source = "../static/game1/img/symbol_06.png";
+                source = "../../../static/game1/img/symbol_06.png";
                 break;
             case "notesolsi":
             case "notefasi":
@@ -656,10 +656,10 @@ async function generateKeynote(note){
             case "notefasisostenido":
             case "notesolsibemol":
             case "notefasibemol":
-                source = "../static/game1/img/symbol_07.png";
+                source = "../../../static/game1/img/symbol_07.png";
                 break;
             default:
-                source = "../static/game1/img/symbol_08.png";
+                source = "../../../static/game1/img/symbol_08.png";
             break;
 
             }
@@ -709,7 +709,7 @@ function deleteKey(key){
 
     var composedkey = "note" + key;
 
-    var audio = new Audio("../static/game1/snd/" + key + ".wav");
+    var audio = new Audio("../../../static/game1/snd/" + key + ".wav");
     audio.play();
 
     if(inGame == 1){
