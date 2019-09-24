@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, flash, session, Blueprint
+from flask import jsonify
 from musicgames import mysql
 import MySQLdb.cursors
 import re
@@ -206,9 +207,31 @@ def alumn_results():
     return render_template('results_a.html', title='Mis Puntuaciones')
 
 # Recibir Puntuaciones
-#@alumns.route('/alumn/<username>/games/<game_id>/<points>, methods=['GET', 'POST']')
-#def receive_result(username, game_id, points):
-#    return 'OK'
+@alumns.route('/alumn/api/results', methods=['POST'])
+def add_result():
+    if 'loggedin' in session:
+        _name_game = request.json['name_game']
+        _level = request.json['level']
+        _points = request.json['score']
+
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        # cursor.execute("SELECT * FROM alumn WHERE alumn_id = %s", [session['alumn_id']])
+        cursor.execute("""
+        INSERT INTO result (name_game, level, points)
+        VALUES (%s, %s, %s)""",
+        (_name_game, _level, _points))
+        mysql.connection.commit()
+
+        return jsonify('Resultados recibidos correctamente')
+        # cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        # cur.execute("SELECT result_id FROM result WHERE points = %s", [_points])
+        # acc = cur.fetchone()
+
+        #if acc:
+        #    cur.execute('INSERT INTO resultalumn (id_teacher, name_grupo) VALUES (%s, %s)', (id_teacher, name))
+        #    mysql.connection.commit()
+
+
 
 # -----------------------------------------------------------------
 # Salida Alumnado
