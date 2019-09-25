@@ -7,6 +7,41 @@
   <div class="media">
     <div class="media-body">
       <legend class="border-bottom mb-4"><b>Mis Logros</b></legend>
+      {% if alumno['points_max'] == 0 %}
+        <p class="text-secondary">No existe ningún logro disponible, debe jugar primero.</p>
+      {% elif alumno['points_max'] > 0 %}
+        {% if alumno['points_max'] < 2 %}
+        <center><img src="{{ url_for('static', filename='img/logros/1.png') }}"></center>
+        {% endif %}
+      {% elif alumno['points_max'] > 1 %}
+        {% if alumno['points_max'] < 201 %}
+        <center><img src="{{ url_for('static', filename='img/logros/2.png') }}"></center>
+        {% endif %}
+      {% elif alumno['points_max'] > 199 %}
+        {% if alumno['points_max'] < 501 %}
+        <center><img src="{{ url_for('static', filename='img/logros/3.png') }}"></center>
+        {% endif %}
+      {% elif alumno['points_max'] > 499 %}
+        {% if alumno['points_max'] < 1001 %}
+        <center><img src="{{ url_for('static', filename='img/logros/4.png') }}"></center>
+        {% endif %}
+      {% elif alumno['points_max'] > 999 %}
+        {% if alumno['points_max'] < 5001 %}
+        <center><img src="{{ url_for('static', filename='img/logros/5.png') }}"></center>
+        {% endif %}
+      {% elif alumno['points_max'] > 4999 %}
+        {% if alumno['points_max'] < 10001 %}
+        <center><img src="{{ url_for('static', filename='img/logros/6.png') }}"></center>
+        {% endif %}
+      {% elif alumno['points_max'] > 9999 %}
+        {% if alumno['points_max'] < 50001 %}
+        <center><img src="{{ url_for('static', filename='img/logros/7.png') }}"></center>
+        {% endif %}
+      {% elif alumno['points_max'] > 49999 %}
+        {% if alumno['points_max'] < 100001 %}
+        <center><img src="{{ url_for('static', filename='img/logros/8.png') }}"></center>
+        {% endif %}
+      {% endif %}
     </div>
   </div>
 </div>

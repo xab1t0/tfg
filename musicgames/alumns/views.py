@@ -172,10 +172,6 @@ def update_avatar(alumn_id):
         return redirect(url_for('alumns.alumn_profile'))
     return render_template('avatar_a.html', title='Elegir Avatar')
 
-# Logro Alumnado
-@alumns.route('/alumn/logros')
-def alumn_logros():
-    return render_template('logros_a.html', title='Mis Logros')
 # -----------------------------------------------------------------
 # Juegos Alumnado
 @alumns.route('/alumn/games')
@@ -230,6 +226,17 @@ def add_result():
         #if acc:
         #    cur.execute('INSERT INTO resultalumn (id_teacher, name_grupo) VALUES (%s, %s)', (id_teacher, name))
         #    mysql.connection.commit()
+# ---------------------------------------------------------------------------------------------------------------
+
+# Logros Alumnado
+@alumns.route('/alumn/logros')
+def alumn_logros():
+    if 'loggedin' in session:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("SELECT points_max FROM alumn WHERE alumn_id = %s", [session['alumn_id']])
+        account = cursor.fetchone()
+        print(account)
+        return render_template('logros_a.html', title='Mis Logros', alumno=account)
 
 # -----------------------------------------------------------------
 # Salida Alumnado

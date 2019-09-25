@@ -16,7 +16,7 @@ var remainingNotes = 10;
 
 function cerrarVentana(){
 
-    window.location.replace("/alumn/games");
+    window.location.replace("/alumn/api/results");
 }
 
 function getPlayerName(){
