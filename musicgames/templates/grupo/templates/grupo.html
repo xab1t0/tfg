@@ -3,7 +3,7 @@
 <legend class="border-bottom mb-4"><b>{{ grupo['name'] }}</b></legend>
 <p class="text-secondary"><b>Aula: </b>{{ grupo['classroom'] }}<br>
   <a class="btn btn-outline-success btn-sm mt-1 mb-1" href="{{ url_for('grupos.edit_group', name=grupo['name']) }}">Actualizar</a>
-  <a class="btn btn-outline-danger btn-sm mt-1 mb-1" href="#">Eliminar</a>
+  <a class="btn btn-outline-danger btn-sm mt-1 mb-1" href="{{ url_for('grupos.supr_group', name=grupo['name']) }}">Eliminar</a>
   <a class="btn btn-outline-secondary btn-sm mt-1 mb-1" href="javascript:history.back(-1);" title="Ir la página anterior">Volver</a>
 </p>
 <legend class="border-bottom mb-4">Alumnado</legend>

@@ -122,6 +122,29 @@ def update_group(name):
         return redirect(url_for('grupos.manage_grupo'))
     return render_template('edit_g.html', title='Modificar Aula')
 
+# Seleccion del grupo (Teacher)
+@grupos.route('/group/<name>/select')
+def supr_group(name):
+    if 'loggedin' in session:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("SELECT * FROM grupo WHERE name = %s", [name])
+        account = cursor.fetchone()
+        return render_template('delete_g.html', grupo=account, title='Eliminar Grupo')
+    return redirect(url_for('teachers.login_t'))
+
+# Eliminar Grupo (Teacher)
+@grupos.route('/group/delete/<name>', methods=['POST'])
+def delete_group(name):
+    if request.method == 'POST':
+        name = request.form['name']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("DELETE FROM grupo WHERE name = %s", [name])
+        mysql.connection.commit()
+        flash('Grupo eliminado correctamente.', 'success')
+        return redirect(url_for('grupos.manage_grupo'))
+    return render_template('delete_g.html', title='Eliminar Grupo')
+
+
 # Selecciono Elegir Grupo (Alumn)
 @grupos.route('/group/choise')
 def select_choise_grupo():

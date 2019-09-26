@@ -1,0 +1,16 @@
+{% extends "base/base_t.html" %}
+{% block content %}
+  <div class="content-section">
+		<form method="post" action="{{ url_for('grupos.delete_group', name=grupo['name'])}}" autocomplete="off">
+      <div class="form-row">
+        <legend class="border-bottom mb-4">Eliminar Grupo</legend>
+        <div class="form-group col-md-6">
+          <label for="name">Grupo</label>
+          <input type="text" class="form-control" name="name" id="name" value="{{ grupo['name'] }}"  required readonly>
+        </div>
+			</div>
+      <button type="submit" class="btn btn-outline-success">Eliminar</button>
+      <a class="btn btn-outline-secondary btn mt-1 mb-1" href="javascript:history.back(-1);" title="Ir la página anterior">Volver</a>
+		</form>
+	</div>
+{% endblock %}
