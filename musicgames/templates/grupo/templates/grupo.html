@@ -12,7 +12,7 @@
     <div class="content-section">
       <div class="media">
         <div class="media-body">
-          <h4 class="text-secondary">{{ manage['fullname'] }}</h4>
+          <a href="{{ url_for('grupos.show_results', username=manage['username']) }}">{{ manage['fullname'] }}</a>
           <p class="text-secondary"><b>Usuario: </b>{{ manage['username'] }}</p>
         </div>
       </div>

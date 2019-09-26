@@ -100,6 +100,39 @@ def show_grupo(name):
         return render_template('grupo.html', manages=account, grupo=acc, title='Info Grupo')
     return redirect(url_for('teachers.login_t'))
 
+# Ver puntuacines alumnos (Teacher)
+@grupos.route('/group/alumn/<username>')
+def show_results(username):
+    # Resultados Game 1
+    cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    game1 = "Notas Musicales"
+    cursor1.execute("""
+    SELECT SUM(IF(name_game = %s AND user_name = %s, points, 0)) total
+    FROM result
+    """, (game1, username))
+    account1 = cursor1.fetchone()
+
+    # Resultados Game 2
+    cursor2 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    game2 = "Equivalencias Musicales"
+    cursor2.execute("""
+    SELECT SUM(IF(name_game = %s AND user_name = %s, points, 0)) total
+    FROM result
+    """, (game2, username))
+    account2 = cursor2.fetchone()
+
+    # Resultados Game 3
+    cursor3 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    game3 = "Atrapa al Intruso"
+    cursor3.execute("""
+    SELECT SUM(IF(name_game = %s AND user_name = %s, points, 0)) total
+    FROM result
+    """, (game3, username))
+    account3 = cursor3.fetchone()
+
+    return render_template('results_alumn.html', title='Puntuaciones', username=username, puntos1=account1, puntos2=account2, puntos3=account3)
+
+
 # Editar aula del grupo (Teacher)
 @grupos.route('/group/<name>/edit')
 def edit_group(name):
@@ -122,7 +155,7 @@ def update_group(name):
         return redirect(url_for('grupos.manage_grupo'))
     return render_template('edit_g.html', title='Modificar Aula')
 
-# Seleccion del grupo (Teacher)
+# Eliminacion del grupo (Teacher)
 @grupos.route('/group/<name>/select')
 def supr_group(name):
     if 'loggedin' in session:
@@ -143,8 +176,7 @@ def delete_group(name):
         flash('Grupo eliminado correctamente.', 'success')
         return redirect(url_for('grupos.manage_grupo'))
     return render_template('delete_g.html', title='Eliminar Grupo')
-
-
+# --------------------------------------------------------------------------------------
 # Selecciono Elegir Grupo (Alumn)
 @grupos.route('/group/choise')
 def select_choise_grupo():
