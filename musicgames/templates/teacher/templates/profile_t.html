@@ -10,7 +10,7 @@
         <p class="text-secondary"><b>DNI: </b>{{ account['dni'] }}</p>
         <p class="text-secondary"><b>Email: </b>{{ account['email'] }}</p>
         <p class="text-secondary"><b>Teléfono: </b>{{ account['phone'] }}</p>
-        <p class="text-secondary"><b>Fecha de Registro: </b>{{ account['register_date'] }}</p>
+        <p class="text-secondary"><b>Último acceso: </b>{{ account['login_date'] }}</p>
         <a class="btn btn-outline-dark btn-sm mt-1 mb-1" href="{{ url_for('teachers.edit_teacher', teacher_id=account['teacher_id']) }}">Modificar</a>
       </div>
     </div>
