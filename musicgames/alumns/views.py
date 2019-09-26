@@ -254,11 +254,34 @@ def alumn_results():
 @alumns.route('/alumn/logros')
 def alumn_logros():
     if 'loggedin' in session:
+        # Actualizar Puntuaciones Totales del Alumno
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("SELECT points_max FROM alumn WHERE alumn_id = %s", [session['alumn_id']])
-        account = cursor.fetchone()
-        print(account)
-        return render_template('logros_a.html', title='Mis Logros', alumno=account)
+        cursor.execute("""
+        SELECT SUM(IF(user_name = %s, points, 0)) total
+        FROM result
+        """, [session['username']])
+        acc = cursor.fetchone()
+
+        if acc['total'] == 0:
+            logro = url_for('static', filename='img/logros/0.png')
+        elif acc['total'] > 0 and acc['total'] < 51:
+            logro = url_for('static', filename='img/logros/1.png')
+        elif acc['total'] > 50 and acc['total'] < 201:
+            logro = url_for('static', filename='img/logros/2.png')
+        elif acc['total'] > 200 and acc['total'] < 501:
+            logro = url_for('static', filename='img/logros/3.png')
+        elif acc['total'] > 500 and acc['total'] < 1001:
+            logro = url_for('static', filename='img/logros/4.png')
+        elif acc['total'] > 1000 and acc['total'] < 2001:
+            logro = url_for('static', filename='img/logros/5.png')
+        elif acc['total'] > 2000 and acc['total'] < 5001:
+            logro = url_for('static', filename='img/logros/6.png')
+        elif acc['total'] > 5000 and acc['total'] < 10001:
+            logro = url_for('static', filename='img/logros/7.png')
+        elif acc['total'] > 10000:
+            logro = url_for('static', filename='img/logros/8.png')
+
+    return render_template('logros_a.html', title='Mis Logros', logro=logro)
 
 # -----------------------------------------------------------------
 # Salida Alumnado
