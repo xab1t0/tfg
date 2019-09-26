@@ -193,22 +193,24 @@ def play_gameA(game_id):
         if game_id == "1":
             return render_template('game1/alumn/index.html', alumn=acc)
         elif game_id == "2":
-            return render_template('game2/alumn/PInicio.html')
+            return render_template('game2/alumn/PInicio.html', alumn=acc)
         elif game_id == "3":
-            return render_template('game3/alumn/PInicio.html')
+            return render_template('game3/alumn/PInicio.html', alumn=acc)
 
 # Resultados de Alumnado
 @alumns.route('/alumn/results')
 def alumn_results():
     return render_template('results_a.html', title='Mis Puntuaciones')
 
+host = "http://127.0.0.1:5000"
 # Recibir Puntuaciones
-@alumns.route('/alumn/api/results', methods=['POST'])
-def add_result():
+@alumns.route('/alumn/api', methods=["POST", "GET"])
+def createResult():
     if 'loggedin' in session:
-        _name_game = request.json['name_game']
-        _level = request.json['level']
-        _points = request.json['score']
+        print(request.json)
+        _name_game = request.get_json()["name_game"]
+        _level = request.get_json()["level"]
+        _points = request.get_json()["score"]
 
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         # cursor.execute("SELECT * FROM alumn WHERE alumn_id = %s", [session['alumn_id']])

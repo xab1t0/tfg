@@ -16,7 +16,7 @@ var remainingNotes = 10;
 
 function cerrarVentana(){
 
-    window.location.replace("/alumn/api/results");
+    window.location.replace("/alumn/games");
 }
 
 function getPlayerName(){
@@ -242,6 +242,30 @@ async function endGame(){
     document.getElementById("userName").innerHTML = name;
     document.getElementById("PlayerScore").innerHTML = "Puntuación anterior: " + score.toString();
     document.getElementById("MaxScore").innerHTML = "Mejor puntuación: " + maxmScore.toString();
+
+    // host
+    var url = 'http://127.0.0.1:5000/alumn/api';
+
+    // post body data
+    var result = {
+      name_fame: 'Notas Musicales',
+      level: 0,
+      score: maxmScore
+    };
+
+    // create request object
+    let request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify(result),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    });
+
+    // send POST request
+    fetch(request)
+      .then(res => res.json())
+      .then(myJson => console.log(myJson));
 
 }
 

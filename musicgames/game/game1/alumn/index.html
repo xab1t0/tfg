@@ -6,11 +6,11 @@
 </head>
 
 <html>
-<body>
+<body onload="getPlayerName()">
 
     <div id="PlayerDataInput">
 
-        <p>Introduzca su nombre:</p>
+        <p>Usuario:</p>
         <form action=""><input type="text" id="PlayerName" value="{{ alumn['username'] }}" required readonly></form>
         <button onclick="getPlayerName()" style="margin-bottom: 10px; margin-top: 10px">OK</button>
 
@@ -151,6 +151,8 @@
         <span class="buttonkey" onclick="deleteKey('button_07')" style="right: 2%"><p class="keytextbutton" id="keytext_32"></p><img src="{{ url_for('static', filename='game1/img/symbol_07.png') }}" class="keysymbol" id="keysymbol_07" alt=""><span class="keycolorbutton" id="keycolor_32"></span></span>
 
     </div>
+
+
 
 </body>
 </html>
