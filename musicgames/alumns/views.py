@@ -197,39 +197,59 @@ def play_gameA(game_id):
         elif game_id == "3":
             return render_template('game3/alumn/PInicio.html', alumn=acc)
 
-# Resultados de Alumnado
-@alumns.route('/alumn/results')
-def alumn_results():
-    return render_template('results_a.html', title='Mis Puntuaciones')
-
 host = "http://127.0.0.1:5000"
 # Recibir Puntuaciones
 @alumns.route('/alumn/api', methods=["POST", "GET"])
 def createResult():
     if 'loggedin' in session:
         print(request.json)
-        _name_game = request.get_json()["name_game"]
-        _level = request.get_json()["level"]
-        _points = request.get_json()["score"]
+        _name_game = request.json["name_game"]
+        _level = request.json["level"]
+        _points = request.json["score"]
 
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        # cursor.execute("SELECT * FROM alumn WHERE alumn_id = %s", [session['alumn_id']])
         cursor.execute("""
-        INSERT INTO result (name_game, level, points)
-        VALUES (%s, %s, %s)""",
-        (_name_game, _level, _points))
+        INSERT INTO result (name_game, level, points, user_name)
+        VALUES (%s, %s, %s, %s)""",
+        (_name_game, _level, _points, [session['username']]))
         mysql.connection.commit()
 
-        return jsonify('Resultados recibidos correctamente')
-        # cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        # cur.execute("SELECT result_id FROM result WHERE points = %s", [_points])
-        # acc = cur.fetchone()
+    return jsonify('Resultados recibidos correctamente')
 
-        #if acc:
-        #    cur.execute('INSERT INTO resultalumn (id_teacher, name_grupo) VALUES (%s, %s)', (id_teacher, name))
-        #    mysql.connection.commit()
+# Resultados de Alumnado
+@alumns.route('/alumn/results')
+def alumn_results():
+    if 'loggedin' in session: # Si no esta logueado no hace nada
+        usuario = session['username']
+        # Puntuaciones totales Game 1
+        cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        game1 = "Notas Musicales"
+        cursor1.execute("""
+        SELECT SUM(IF(name_game = %s AND user_name = %s, points, 0)) total
+        FROM result
+        """, (game1, usuario))
+        account1 = cursor1.fetchone()
+
+        # Puntuaciones totales Game 2
+        cursor2 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        game2 = "Equivalencias Musicales"
+        cursor2.execute("""
+        SELECT SUM(IF(name_game = %s AND user_name = %s, points, 0)) total
+        FROM result
+        """, (game2, usuario))
+        account2 = cursor2.fetchone()
+
+        # Puntuaciones totales Game 3
+        cursor3 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        game3 = "Atrapa al Intruso"
+        cursor3.execute("""
+        SELECT SUM(IF(name_game = %s AND user_name = %s, points, 0)) total
+        FROM result
+        """, (game3, usuario))
+        account3 = cursor3.fetchone()
+
+    return render_template('results_a.html', title='Mis Puntuaciones', puntos1=account1, puntos2=account2, puntos3=account3)
 # ---------------------------------------------------------------------------------------------------------------
-
 # Logros Alumnado
 @alumns.route('/alumn/logros')
 def alumn_logros():

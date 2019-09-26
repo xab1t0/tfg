@@ -248,7 +248,7 @@ async function endGame(){
 
     // post body data
     var result = {
-      name_fame: 'Notas Musicales',
+      name_game: 'Notas Musicales',
       level: 0,
       score: maxmScore
     };
@@ -266,6 +266,17 @@ async function endGame(){
     fetch(request)
       .then(res => res.json())
       .then(myJson => console.log(myJson));
+
+    const userAction = async () => {
+      const response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(result),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const myJson = await response.json();
+    }
 
 }
 
