@@ -40,6 +40,7 @@ def register_a():
             mysql.connection.commit()
             flash('Tu cuenta ha sido creada. Ahora puedes iniciar sesion', 'success')
             return redirect(url_for('alumns.login_a'))
+    # Si falta algun dato
     elif request.method == 'POST':
         flash('Por favor, rellene todo el formulario', 'danger')
     return render_template('register_a.html', title='Registro')
