@@ -34,7 +34,7 @@ def register_t():
         elif not username or not password or not fullname or not dni or not email or not phone or not gender:
             flash('Por favor, rellene el formulario.', 'danger')
         else:
-            # Account doesnt exists and the form data is valid, now insert new account into accounts table
+            # Si la cuenta no existe y el form es valido, se agrega el nuevo profesor
             cursor.execute('INSERT INTO teacher (username, password, fullname, dni, email, phone, gender) VALUES (%s, %s, %s, %s, %s, %s, %s)', (username, password, fullname, dni, email, phone, gender))
             mysql.connection.commit()
             flash('Tu cuenta ha sido creada. Ahora puedes iniciar sesion', 'success')
@@ -67,7 +67,7 @@ def login_t():
             # Redireccionamos al inicio
             return redirect(url_for('main.home_t'))
         else:
-            # Account doesnt exist or username/password incorrect
+            # Si la cuenta no existe o usuario/clave son erroneos
             flash('Inicio de sesion fallido. Por favor, compruebe su usuario y clave', 'danger')
             return redirect(url_for('teachers.login_t'))
     return render_template('login_t.html', title='Acceso')
@@ -77,7 +77,7 @@ def login_t():
 def teacher_profile():
      # Chequeamos si esta logueado
     if 'loggedin' in session:
-        # Necesitamos toda la informacion de la cuenta del usuario para poder mostrarla en la pagina de perfil
+        # Necesitamos toda la informacion de la cuenta del profesor para poder mostrarla en la pagina de perfil
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM teacher WHERE teacher_id = %s', [session['teacher_id']])
         account = cursor.fetchone()
@@ -94,6 +94,7 @@ def teacher_profile():
 @teachers.route('/teacher/edit/<teacher_id>')
 def edit_teacher(teacher_id):
     if 'loggedin' in session:
+        # Buscamos al profesor por su id
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("SELECT * FROM teacher WHERE teacher_id = %s", [teacher_id])
         account = cursor.fetchone()
@@ -108,6 +109,7 @@ def update_teacher(teacher_id):
         fullname = request.form['fullname']
         email = request.form['email']
         phone = request.form['phone']
+        # El profesor actualiza sus datos
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("""
         UPDATE teacher
@@ -124,7 +126,7 @@ def update_teacher(teacher_id):
 
 @teachers.route('/teacher/logout')
 def logout_t():
-    # Eliminamos el dato de sesion, para que el usuario salga
+    # Eliminamos el dato de sesion, para que el profesor salga
    session.pop('loggedin', None)
    session.pop('id', None)
    session.pop('username', None)

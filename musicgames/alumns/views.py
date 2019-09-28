@@ -69,7 +69,7 @@ def login_a():
             # Redireccionamos al inicio
             return redirect(url_for('main.home'))
         else:
-            # Account doesnt exist or username/password incorrect
+            # Si la cuenta no existe o usuario/clave son erroneos
             flash('Inicio de sesion fallido. Por favor, compruebe su usuario y clave', 'danger')
             return redirect(url_for('alumns.login_a'))
     return render_template('login_a.html', title='Acceso')
@@ -83,6 +83,7 @@ def alumn_profile():
         cursor.execute('SELECT * FROM alumn WHERE alumn_id = %s', [session['alumn_id']])
         account = cursor.fetchone()
         # Muestra el perfil si esta logueado
+        # Se comprueba el avatar elegido
         if account['avatar'] == "1":
             avatar = url_for('static', filename='img/avatar/1.png')
         elif account['avatar'] == "2":
@@ -125,6 +126,7 @@ def alumn_profile():
 @alumns.route('/alumn/edit/<alumn_id>')
 def edit_alumn(alumn_id):
     if 'loggedin' in session:
+        # Buscamos al alumno por su id
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("SELECT * FROM alumn WHERE alumn_id = %s", [alumn_id])
         account = cursor.fetchone()
@@ -138,6 +140,7 @@ def update_alumn(alumn_id):
         username = request.form['username']
         fullname = request.form['fullname']
         email = request.form['email']
+        # El alumno actualiza sus datos
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("""
         UPDATE alumn
@@ -155,6 +158,7 @@ def update_alumn(alumn_id):
 @alumns.route('/alumn/update/<alumn_id>')
 def edit_avatar(alumn_id):
     if 'loggedin' in session:
+        # Buscamos al alumno por su id
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("SELECT * FROM alumn WHERE alumn_id = %s", [alumn_id])
         account = cursor.fetchone()
@@ -166,6 +170,7 @@ def edit_avatar(alumn_id):
 def update_avatar(alumn_id):
     if request.method == 'POST':
         avatar = request.form['avatar']
+        # Selecciona el avatar nuevo y lo actualiza
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('UPDATE alumn SET avatar = %s WHERE alumn_id = %s', (avatar, alumn_id))
         mysql.connection.commit()
@@ -178,6 +183,7 @@ def update_avatar(alumn_id):
 @alumns.route('/alumn/games')
 def alumn_games():
     if 'loggedin' in session:
+        # Se muestran todos los juegos existentes
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("SELECT * FROM game")
         account = cursor.fetchall()
@@ -188,9 +194,11 @@ def alumn_games():
 @alumns.route('/alumn/game/<game_id>')
 def play_gameA(game_id):
     if 'loggedin' in session:
+        # Se pulsa en jugar, en funcion del id del juego, sale un juego u otro
         cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cur.execute("SELECT * FROM alumn WHERE username = %s", [session['username']])
         acc = cur.fetchone()
+        # Se pasa el nombre de usuario
         if game_id == "1":
             return render_template('game1/alumn/index.html', alumn=acc)
         elif game_id == "2":
@@ -198,22 +206,24 @@ def play_gameA(game_id):
         elif game_id == "3":
             return render_template('game3/alumn/PInicio.html', alumn=acc)
 
-# Recibir Puntuaciones
+# Recibir Puntuaciones (API)
 @alumns.route('/alumn/api', methods=["POST", "GET"])
 def createResult():
     if 'loggedin' in session:
+        # Muestra el array de valores recibidos de la API
         print(request.json)
+        # Recoge los valores recibidos por la API
         _name_game = request.json["name_game"]
         _level = request.json["level"]
         _points = request.json["score"]
-
+        # Se insertan estos, en la tabla result
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("""
         INSERT INTO result (name_game, level, points, user_name)
         VALUES (%s, %s, %s, %s)""",
         (_name_game, _level, _points, [session['username']]))
         mysql.connection.commit()
-
+    # Si todo ha ido ok, se muestra por consola
     return jsonify('Resultados recibidos correctamente')
 
 # Resultados de Alumnado
@@ -261,7 +271,7 @@ def alumn_logros():
         FROM result
         """, [session['username']])
         acc = cursor.fetchone()
-
+        # Dependiendo del total de puntos muestra un logro u otro (acumulables)
         if acc['total'] == 0:
             logro = url_for('static', filename='img/logros/0.png')
         elif acc['total'] > 0 and acc['total'] < 51:
@@ -287,7 +297,7 @@ def alumn_logros():
 # Salida Alumnado
 @alumns.route('/logout')
 def logout():
-    # Eliminamos el dato de sesion, para que el usuario salga
+    # Eliminamos el dato de sesion, para que el alumno salga
    session.pop('loggedin', None)
    session.pop('id', None)
    session.pop('username', None)
