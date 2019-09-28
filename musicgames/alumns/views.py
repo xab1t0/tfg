@@ -197,7 +197,6 @@ def play_gameA(game_id):
         elif game_id == "3":
             return render_template('game3/alumn/PInicio.html', alumn=acc)
 
-host = "http://127.0.0.1:5000"
 # Recibir Puntuaciones
 @alumns.route('/alumn/api', methods=["POST", "GET"])
 def createResult():
