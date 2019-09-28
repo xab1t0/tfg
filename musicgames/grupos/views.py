@@ -9,6 +9,7 @@ grupos = Blueprint('grupos', __name__, template_folder='../templates/grupo/templ
 @grupos.route('/group/create')
 def create_grupo():
     if 'loggedin' in session:
+        # Buscamos al profesor por su id
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("SELECT * FROM teacher WHERE teacher_id = %s", [session['teacher_id']])
         account = cursor.fetchone()
@@ -37,6 +38,7 @@ def add_grupo():
             elif not name or not classroom:
                 flash('Por favor, rellene el formulario.', 'danger')
             else:
+                # Si el grupo no existe, pasamos a crearlo
                 cursor.execute('INSERT INTO grupo (name, classroom) VALUES (%s, %s)', (name, classroom))
                 mysql.connection.commit()
                 flash('Confirme su grupo, por favor', 'primary')
@@ -60,6 +62,7 @@ def confirm_group():
                 flash('El grupo ya pertenece a otro/a profesor/a.', 'danger')
                 return redirect(url_for('teachers.teacher_profile'))
             else:
+                # Al no estar asociado, lo asociamos al profesor
                 cursor.execute('INSERT INTO grupoteacher (id_teacher, name_grupo) VALUES (%s, %s)', (id_teacher, name))
                 mysql.connection.commit()
                 flash('Se ha asociado correctamente a su grupo.', 'success')
@@ -72,6 +75,7 @@ def confirm_group():
 @grupos.route('/teacher/group')
 def manage_grupo():
     if 'loggedin' in session:
+        # Se buscan todos los grupos pertenecientes a cada profesor
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("""
         SELECT grupo.name, grupo.classroom, teacher.fullname, teacher.teacher_id
@@ -89,6 +93,7 @@ def show_grupo(name):
         cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cur.execute("SELECT * FROM grupo WHERE name = %s", [name])
         acc = cur.fetchone()
+        # Buscamos todos los alumnos pertenecientes al grupo dirigido por el profesor
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("""
         SELECT alumn.fullname, alumn.username, grupo.name,
@@ -132,11 +137,11 @@ def show_results(username):
 
     return render_template('results_alumn.html', title='Puntuaciones', username=username, puntos1=account1, puntos2=account2, puntos3=account3)
 
-
 # Editar aula del grupo (Teacher)
 @grupos.route('/group/<name>/edit')
 def edit_group(name):
     if 'loggedin' in session:
+        # Buscamos al grupo por su nombre
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("SELECT * FROM grupo WHERE name = %s", [name])
         account = cursor.fetchone()
@@ -148,6 +153,7 @@ def edit_group(name):
 def update_group(name):
     if request.method == 'POST':
         classroom = request.form['classroom']
+        # Se actualiza el aula del grupo
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("UPDATE grupo SET classroom = %s WHERE name = %s", (classroom, name))
         mysql.connection.commit()
@@ -159,6 +165,7 @@ def update_group(name):
 @grupos.route('/group/<name>/select')
 def supr_group(name):
     if 'loggedin' in session:
+        # Seleccionamos el grupo por su nombre
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("SELECT * FROM grupo WHERE name = %s", [name])
         account = cursor.fetchone()
@@ -170,6 +177,7 @@ def supr_group(name):
 def delete_group(name):
     if request.method == 'POST':
         name = request.form['name']
+        # Eliminamos el grupo por su nombre
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("DELETE FROM grupo WHERE name = %s", [name])
         mysql.connection.commit()
@@ -181,6 +189,7 @@ def delete_group(name):
 @grupos.route('/group/choise')
 def select_choise_grupo():
     if 'loggedin' in session:
+        # Se busca al alumno por su id
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("SELECT * FROM alumn WHERE alumn_id = %s", [session['alumn_id']])
         account = cursor.fetchone()
@@ -194,6 +203,7 @@ def choise_grupo():
         if request.method == 'POST' and 'id_alumn' in request.form and 'name_grupo' in request.form:
             id_alumn = request.form['id_alumn']
             name_grupo = request.form['name_grupo']
+            # Con el id del alumno y el nombre del grupo
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute("SELECT * FROM grupoalumn WHERE id_alumn = %s", [id_alumn])
             account = cursor.fetchone()
@@ -202,6 +212,7 @@ def choise_grupo():
                 flash('Ya pertenece a un grupo.', 'danger')
                 return redirect(url_for('alumns.alumn_profile'))
             else:
+                # Si el alumno no ha elegido grupo, se le asocia el grupo ingresado
                 cursor.execute('INSERT INTO grupoalumn (id_alumn, name_grupo) VALUES (%s, %s)', (id_alumn, name_grupo))
                 mysql.connection.commit()
                 flash('Se ha asociado correctamente a su grupo.', 'success')
@@ -214,6 +225,7 @@ def choise_grupo():
 @grupos.route('/alumn/group')
 def see_grupo():
     if 'loggedin' in session:
+        # Se busca el grupo del alumno
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("""
         SELECT grupo.name, grupo.classroom, alumn.fullname, alumn.alumn_id
@@ -228,6 +240,7 @@ def see_grupo():
 @grupos.route('/alumn/group/<name>/teacher')
 def grupo_teacher(name):
     if 'loggedin' in session:
+        # Se busca por el nombre del grupo, el profesor que lo imparte
         cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cur.execute("SELECT * FROM grupo WHERE name = %s", [name])
         acc = cur.fetchone()
