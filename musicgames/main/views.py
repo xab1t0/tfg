@@ -8,6 +8,7 @@ main = Blueprint('main', __name__, template_folder='../templates/main/templates'
 # Inicio
 @main.route('/')
 def inicio():
+    # Pagina incial
     return render_template('inicio.html', title='Inicio')
 
 # Inicio No Registrados
@@ -40,6 +41,7 @@ def not_permit():
 def home_t():
     # Chequear si esta logueado
     if 'loggedin' in session:
+        # Consulta para mostrar los grupos de todos los profesores
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("""
         SELECT grupo.name, grupo.grupo_id, grupo.classroom, teacher.fullname
@@ -89,10 +91,6 @@ def contact_a():
 @main.route('/teacher/contact')
 def contact_t():
     return render_template('contact_t.html', title='Contacto')
-
-"""@main.route('/thanks')
-def thanks():
-    return render_template('thanks.html', title='Gracias')"""
 
 # Noticias ---------------------------------------------------------------------
 """@main.route('/news')
