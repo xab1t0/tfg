@@ -226,6 +226,44 @@ def createResult():
     # Si todo ha ido ok, se muestra por consola
     return jsonify('Resultados recibidos correctamente')
 
+@alumns.route('/alumn/game/2')
+def index_game2():
+    # Redireccionamos a la pag de inicio
+    return render_template('game2/alumn/PInicio.html')
+
+@alumns.route('/alumn/game/3')
+def index_game3():
+    # Redireccionamos a la pag de inicio
+    return render_template('game3/alumn/PInicio.html')
+
+@alumns.route('/alumn/game/2/levels')
+def level_game2():
+    # Redireccionamos a la pag de niveles
+    return render_template('game2/alumn/Niveles.html')
+
+@alumns.route('/alumn/game/3/levels')
+def level_game3():
+    # Redireccionamos a la pag de niveles
+    return render_template('game3/alumn/Niveles.html')
+
+@alumns.route('/alumn/game/2/level')
+def lvl_game2():
+    return render_template('game2/alumn/nivelgene.html')
+
+@alumns.route('/alumn/game/3/level')
+def lvl_game3():
+    return render_template('game3/alumn/nivelgene.html')
+
+@alumns.route('/alumn/game/2/gameover')
+def gameover2():
+    # Redireccionamos a la pag de fin de juego
+    return render_template('game2/alumn/gameover.html')
+
+@alumns.route('/alumn/game/3/gameover')
+def gameover3():
+    # Redireccionamos a la pag de fin de juego
+    return render_template('game3/alumn/gameover.html')
+# ----------------------------------------------------------------------------
 # Resultados de Alumnado
 @alumns.route('/alumn/results')
 def alumn_results():
