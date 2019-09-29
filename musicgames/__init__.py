@@ -21,13 +21,11 @@ def create_app():
     from musicgames.grupos.views import grupos
     from musicgames.main.views import main
     from musicgames.games.views import juego
-    #from musicgames.errors.handlers import errors
 
     app.register_blueprint(teachers)
     app.register_blueprint(alumns)
     app.register_blueprint(grupos)
     app.register_blueprint(main)
     app.register_blueprint(juego)
-    #app.register_blueprint(errors)
 
     return app
