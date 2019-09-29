@@ -124,6 +124,8 @@ def update_teacher(teacher_id):
         return redirect(url_for('teachers.teacher_profile'))
     return render_template('edit_t.html', title='Modificar Datos')
 
+# -----------------------------------------------------------------
+# Salida Alumnado
 @teachers.route('/teacher/logout')
 def logout_t():
     # Eliminamos el dato de sesion, para que el profesor salga
