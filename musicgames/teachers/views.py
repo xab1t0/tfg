@@ -125,7 +125,7 @@ def update_teacher(teacher_id):
     return render_template('edit_t.html', title='Modificar Datos')
 
 # -----------------------------------------------------------------
-# Salida Alumnado
+# Salida Profesorado
 @teachers.route('/teacher/logout')
 def logout_t():
     # Eliminamos el dato de sesion, para que el profesor salga
