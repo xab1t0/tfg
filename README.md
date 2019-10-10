@@ -9,11 +9,11 @@ Trabajo Fin de Grado
 
   MusicGames es una plataforma web para el aprendizaje del lenguaje musical, con el uso de juegos musicales. Va enfocada a un público infantil, aunque dispone de un seguimiento por profesorado.
 
-  Es necesario el Registro y el posterior logueo, del alumnado y profesorado.
+  Es necesario el registro y el posterior logueo, del alumnado y profesorado, para tener un seguimiento del alumnado.
 
 ## Requisitos
 
-  Es necesario terner instalado [Flask 1.1.x](https://flask.palletsprojects.com/en/1.1.x/) y [Python v2.7](https://www.python.org/download/releases/2.7/)
+  Es necesario tener instalado [Flask 1.1.x](https://flask.palletsprojects.com/en/1.1.x/) y [Python v2.7](https://www.python.org/download/releases/2.7/)
 
   Además ya las librerías: [flask-mysql](https://flask-mysql.readthedocs.io/en/latest/)
   ```
