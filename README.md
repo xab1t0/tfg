@@ -25,4 +25,4 @@ Trabajo Fin de Grado
   ```
 ## Uso
 
-  Se dispone de un Manual de Usuario, el cúal está bastante bien explicado.
+  Se dispone de un Manual de Usuario, el cúal se encuentra en la carpeta /manuales.
